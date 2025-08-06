@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -31,8 +31,13 @@ import Image from "next/image";
 import provenWorkImg1 from "@/assets/Proven-work/img-1.jpg";
 import provenWorkImg2 from "@/assets/Proven-work/img-2.jpg";
 import provenWorkImg3 from "@/assets/Proven-work/img-3.jpg";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const InqordWebsite = () => {
+   useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -370,8 +375,13 @@ const InqordWebsite = () => {
         </div>
       </section>
 
-      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4"
+       
+      >
+        <div className="bg-white p-6 rounded-lg shadow-md"   data-aos="fade-up"
+              data-aos-easing="ease-out"
+              data-aos-duration="400"
+              data-aos-once="true">
           <div className="text-2xl font-bold text-blue-600 mb-2">
             Strategic Partnership
           </div>
@@ -380,7 +390,10 @@ const InqordWebsite = () => {
             collaboration, trust, and long-term value for every client we serve.
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-md"   data-aos="fade-up"
+              data-aos-easing="ease-out"
+              data-aos-duration="400"
+              data-aos-once="true">
           <div className="text-2xl font-bold text-blue-600 mb-2">
             Expert-Led Delivery
           </div>
@@ -389,7 +402,10 @@ const InqordWebsite = () => {
             and digital transformation, with a sharp focus on execution
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md sm:col-span-2 lg:col-span-1">
+        <div className="bg-white p-6 rounded-lg shadow-md sm:col-span-2 lg:col-span-1"   data-aos="fade-up"
+              data-aos-easing="ease-out"
+              data-aos-duration="400"
+              data-aos-once="true">
           <div className="text-2xl font-bold text-blue-600 mb-2">
             Proven Track Record
           </div>
@@ -496,6 +512,10 @@ const InqordWebsite = () => {
               <div
                 key={index}
                 className="bg-[#eff3fa] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow group"
+                  data-aos="fade-up"
+              data-aos-easing="ease-out"
+              data-aos-duration="400"
+              data-aos-once="true"
               >
                 <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
@@ -536,6 +556,10 @@ const InqordWebsite = () => {
                     className={`  rounded-lg flex flex-col lg:flex-row lg:items-center text-gray-900 gap-x-4 ${
                       i !== 1 && "lg:pl-8"
                     } `}
+                      data-aos="fade-left"
+              data-aos-easing="ease-out"
+              data-aos-duration="400"
+              data-aos-once="true"
                   >
                     <div className=" rounded-[15px] h-[60%] w-[50%] lg:h-36 lg:w-44 hover:scale-105 transition-transform cursor-pointer ">
                       <Image
