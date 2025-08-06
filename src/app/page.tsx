@@ -28,6 +28,9 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/heroImg.jpg";
 import Image from "next/image";
+import provenWorkImg1 from "@/assets/Proven-work/img-1.jpg";
+import provenWorkImg2 from "@/assets/Proven-work/img-2.jpg";
+import provenWorkImg3 from "@/assets/Proven-work/img-3.jpg";
 
 const InqordWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -165,6 +168,26 @@ const InqordWebsite = () => {
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     },
   ];
+  const provenWorkExperience = [
+    {
+      title: "Assessment and Planning",
+      subtitle:
+        "In this initial step, the focus is on understanding the specific needs with",
+      imageSrc: provenWorkImg1,
+    },
+    {
+      title: "Solution and development",
+      subtitle:
+        "With a plan in place, the development and implementation process begins.",
+      imageSrc: provenWorkImg2,
+    },
+    {
+      title: "Support and Optimization",
+      subtitle:
+        "After the solution is deployed, ongoing are essential long-term success.",
+      imageSrc: provenWorkImg3,
+    },
+  ];
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -236,9 +259,9 @@ const InqordWebsite = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-gray-900" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-gray-900" />
               )}
             </button>
           </div>
@@ -347,7 +370,7 @@ const InqordWebsite = () => {
         </div>
       </section>
 
-      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-20 px-4">
+      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="text-2xl font-bold text-blue-600 mb-2">
             Strategic Partnership
@@ -493,43 +516,49 @@ const InqordWebsite = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-blue-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center mb-6">
-              <Shield className="w-8 h-8 mr-3" />
-              <span className="text-xl font-semibold">
-                Highly acclaimed company
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              5000+ Client reviews
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore amet pariatur. Excepteur sint occaecat cupidatat non
-              proident.
+        <div className="absolute inset-0 bg-[#eff3fa]"></div>
+        <div className="container mx-auto px-4 relative flex flex-col lg:flex-row lg:justify-between">
+          <div className="flex flex-col gap-y-4 text-gray-900 justify-between mb-4">
+            <span className="text-blue-600 font-semibold mb-4">Working Process</span>
+            <p className="lg:text-6xl text-3xl font-bold">
+              Explore our best <br /> proven work procedure.
             </p>
-            <div className="flex items-center justify-center space-x-2 mb-8">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-6 h-6 text-yellow-400 fill-current"
-                />
-              ))}
-              <span className="ml-3 text-lg font-semibold">
-                Trust score 4.5
-              </span>
-            </div>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Contact Our Team
+            <button className="border block ml-right w-fit lg:px-10 px-6 lg:py-4 py-2 rounded-[20px]">
+              Explore More
             </button>
+          </div>
+          <div>
+            <section className="flex flex-col gap-y-10">
+              {provenWorkExperience.map((item, i) => {
+                return (
+                  <div
+                    key={i}
+                    className={`  rounded-lg flex flex-col lg:flex-row lg:items-center text-gray-900 gap-x-4 ${
+                      i !== 1 && "lg:pl-8"
+                    } `}
+                  >
+                    <div className=" rounded-[15px] h-[60%] w-[50%] lg:h-36 lg:w-44 hover:scale-105 transition-transform cursor-pointer ">
+                      <Image
+                        src={item.imageSrc}
+                        alt="impact-layer proven work experience"
+                        className="border w-full h-full rounded-[15px]"
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-y-2">
+                      <span className="font-bold text-xl text-[#001746]">{item.title}</span>
+                      <p className="text-lg text-[#566E7C]">{item.subtitle}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </section>
           </div>
         </div>
       </section>
 
       {/* Working Process Section */}
-      <section id="process" className="py-20">
+      {/* <section id="process" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="text-blue-600 font-semibold mb-4">
@@ -561,7 +590,7 @@ const InqordWebsite = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-gray-50">
@@ -613,13 +642,13 @@ const InqordWebsite = () => {
             {/* Navigation */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
+              className="absolute left-4 lg:top-1/2 top-0 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
+              className="absolute right-4 lg:top-1/2 top-0  transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -688,29 +717,29 @@ const InqordWebsite = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
+            <div className="bg-[#eff3fa] p-8 rounded-2xl">
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
                   />
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
                   />
                 </div>
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
                 />
                 <textarea
                   placeholder="Your Message"
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
                 ></textarea>
                 <button className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   Send Message
@@ -779,7 +808,7 @@ const InqordWebsite = () => {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                  Request a Project Estimate
+                    Request a Project Estimate
                   </a>
                 </li>
               </ul>
@@ -823,19 +852,16 @@ const InqordWebsite = () => {
                   {" "}
                   <span className="font-bold">Opening Hours</span> <br />{" "}
                   Weekdays: 09:00 – 17:00
-                  <br/>
+                  <br />
                   Saturday: 10:00 – 14:00
                 </li>
-               
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>© 2025 ImpactLayer. All rights reserved.</p>
-            <p>
-              Terms & Conditions | Privacy Policy | Legal
-              </p>
+            <p>Terms & Conditions | Privacy Policy | Legal</p>
           </div>
         </div>
       </footer>
