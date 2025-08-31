@@ -28,11 +28,15 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/heroImg.jpg";
 import Image from "next/image";
-import provenWorkImg1 from "@/assets/Proven-work/img-1.jpg";
-import provenWorkImg2 from "@/assets/Proven-work/img-2.jpg";
-import provenWorkImg3 from "@/assets/Proven-work/img-3.jpg";
+import logo from "@/assets/logo.png"
+import logoWhite from "@/assets/logo-white.png"
+
+import provenWorkImg1 from "@/assets/proven-work/img-1.jpg";
+import provenWorkImg2 from "@/assets/proven-work/img-2.jpg";
+import provenWorkImg3 from "@/assets/proven-work/img-3.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import ContactForm from "@/components/contactForm";
 
 const InqordWebsite = () => {
    useEffect(() => {
@@ -210,50 +214,47 @@ const InqordWebsite = () => {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-gray-900">Impact Layer</div>
+            <div className="text-2xl font-bold text-gray-900">
+              <Image src={logo} alt='logo' height={200} width={200}/>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
               <a
                 href="#home"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-[#206CCA] transition-colors"
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-[#206CCA] transition-colors"
               >
                 About
               </a>
               <a
                 href="#services"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-[#206CCA] transition-colors"
               >
                 Services
               </a>
-              <a
-                href="#process"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Process
-              </a>
+             
               <a
                 href="#testimonials"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-[#206CCA] transition-colors"
               >
                 Testimonials
               </a>
               <a
                 href="#contact"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-[#206CCA] transition-colors"
               >
                 Contact
               </a>
             </nav>
 
             <div className="hidden lg:block">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="bg-[#206CCA] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                 Get Started
               </button>
             </div>
@@ -277,41 +278,36 @@ const InqordWebsite = () => {
               <div className="flex flex-col space-y-4">
                 <a
                   href="#home"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
                 >
                   Home
                 </a>
                 <a
                   href="#about"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
                 >
                   About
                 </a>
                 <a
                   href="#services"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
                 >
                   Services
                 </a>
-                <a
-                  href="#process"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  Process
-                </a>
+               
                 <a
                   href="#testimonials"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
                 >
                   Testimonials
                 </a>
                 <a
                   href="#contact"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
                 >
                   Contact
                 </a>
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
+                <button className="bg-[#206CCA] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
                   Get Started
                 </button>
               </div>
@@ -352,7 +348,7 @@ const InqordWebsite = () => {
             <div className="text-center lg:text-left py-20 lg:py-0">
               <h1 className="text-3xl lg:text-6xl font-bold text-gray-100 mb-6 leading-tight">
                 Leading with
-                <span className="text-blue-600 block">technology</span>
+                <span className="text-[#206CCA] block">technology</span>
                 delivering with trust.
               </h1>
               <p className="text-lg lg:text-2xl text-gray-100 mb-8 leading-relaxed">
@@ -364,10 +360,10 @@ const InqordWebsite = () => {
             {/* Stats */}
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center">
+              <button className="bg-[#206CCA] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center">
                 Start A Project <ArrowRight className="ml-2 w-5 h-5" />
               </button>
-              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center">
+              <button className="border-2 border-[#206CCA] text-[#206CCA] px-8 py-4 rounded-lg font-semibold hover:bg-[#206CCA] hover:text-white transition-colors flex items-center justify-center">
                 <PhoneCall className="mr-2 w-5 h-5" /> Talk With An Expert
               </button>
             </div>
@@ -382,7 +378,7 @@ const InqordWebsite = () => {
               data-aos-easing="ease-out"
               data-aos-duration="400"
               data-aos-once="true">
-          <div className="text-2xl font-bold text-blue-600 mb-2">
+          <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Strategic Partnership
           </div>
           <div className="text-gray-600">
@@ -394,7 +390,7 @@ const InqordWebsite = () => {
               data-aos-easing="ease-out"
               data-aos-duration="400"
               data-aos-once="true">
-          <div className="text-2xl font-bold text-blue-600 mb-2">
+          <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Expert-Led Delivery
           </div>
           <div className="text-gray-600">
@@ -406,7 +402,7 @@ const InqordWebsite = () => {
               data-aos-easing="ease-out"
               data-aos-duration="400"
               data-aos-once="true">
-          <div className="text-2xl font-bold text-blue-600 mb-2">
+          <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Proven Track Record
           </div>
           <div className="text-gray-600">
@@ -429,7 +425,7 @@ const InqordWebsite = () => {
             </div>
 
             <div className="h-full ">
-              <div className="text-blue-600 font-semibold mb-4">About us</div>
+              <div className="text-[#206CCA] font-semibold mb-4">About us</div>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 Grounded in Strategy,
                 <br />
@@ -457,7 +453,7 @@ const InqordWebsite = () => {
                 </p>
               </div>
               <article className="flex lg:flex-row flex-col items-center justify-start gap-x-4 rounded-xl gap-y-4">
-                <div className=" bg-blue-600 text-white py-2 px-8 rounded-xl shadow-lg">
+                <div className=" bg-[#206CCA] text-white py-2 px-8 rounded-xl shadow-lg">
                   <div className="text-2xl font-bold">24/7</div>
                   <div className="text-sm">Support</div>
                 </div>
@@ -494,7 +490,7 @@ const InqordWebsite = () => {
       <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="text-blue-600 font-semibold mb-4">
+            <div className="text-[#206CCA] font-semibold mb-4">
               What we offer
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -517,14 +513,14 @@ const InqordWebsite = () => {
               data-aos-duration="400"
               data-aos-once="true"
               >
-                <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                <div className="text-[#206CCA] mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-gray-900">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
-                <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center">
+                <button className="text-[#206CCA] font-semibold hover:text-blue-700 transition-colors flex items-center">
                   Who's it for:
                 </button>
                 <span className="text-gray-900">{service.subtext}</span>
@@ -535,11 +531,11 @@ const InqordWebsite = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white relative overflow-hidden">
+      <section className="py-20 bg-[#206CCA] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[#eff3fa]"></div>
         <div className="container mx-auto px-4 relative flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-y-4 text-gray-900 justify-between mb-4">
-            <span className="text-blue-600 font-semibold mb-4">Working Process</span>
+            <span className="text-[#206CCA] font-semibold mb-4">Working Process</span>
             <p className="lg:text-6xl text-3xl font-bold">
               Explore our best <br /> proven work procedure.
             </p>
@@ -585,7 +581,7 @@ const InqordWebsite = () => {
       {/* <section id="process" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="text-blue-600 font-semibold mb-4">
+            <div className="text-[#206CCA] font-semibold mb-4">
               Working process
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -598,7 +594,7 @@ const InqordWebsite = () => {
               {workProcess.map((process, index) => (
                 <div key={index} className="text-center group">
                   <div className="relative mb-8">
-                    <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-105 transition-transform">
+                    <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-[#206CCA] rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-105 transition-transform">
                       {process.step}
                     </div>
                     {index < workProcess.length - 1 && (
@@ -620,7 +616,7 @@ const InqordWebsite = () => {
       <section id="testimonials" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="text-blue-600 font-semibold mb-4">Testimonial</div>
+            <div className="text-[#206CCA] font-semibold mb-4">Testimonial</div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               See what our customers are saying
             </h2>
@@ -666,13 +662,13 @@ const InqordWebsite = () => {
             {/* Navigation */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 lg:top-1/2 top-0 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
+              className="absolute left-4 lg:top-1/2 top-0 transform -translate-y-1/2 bg-[#206CCA] text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 lg:top-1/2 top-0  transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
+              className="absolute right-4 lg:top-1/2 top-0  transform -translate-y-1/2 bg-[#206CCA] text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -684,7 +680,7 @@ const InqordWebsite = () => {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    currentTestimonial === index ? "bg-blue-600" : "bg-gray-300"
+                    currentTestimonial === index ? "bg-[#206CCA]" : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -711,7 +707,7 @@ const InqordWebsite = () => {
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
-                  <Phone className="w-6 h-6 text-blue-600" />
+                  <Phone className="w-6 h-6 text-[#206CCA]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
@@ -721,55 +717,27 @@ const InqordWebsite = () => {
 
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                  <Mail className="w-6 h-6 text-[#206CCA]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                  <p className="text-gray-600">hello@inqord.com</p>
+                  <p className="text-gray-600">adaeze@impactlayer.tech</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-blue-600" />
+                  <MapPin className="w-6 h-6 text-[#206CCA]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Location</h3>
-                  <p className="text-gray-600">New York, NY</p>
+                  <p className="text-gray-600">Nigeria</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#eff3fa] p-8 rounded-2xl">
-              <div className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 bg-white text-gray-900"
-                ></textarea>
-                <button className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  Send Message
-                </button>
-              </div>
-            </div>
+          <ContactForm/>
           </div>
         </div>
       </section>
@@ -779,7 +747,9 @@ const InqordWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
-              <div className="text-2xl font-bold mb-6">Impact Layer</div>
+              <div className="text-2xl font-bold text-gray-900">
+              <Image src={logoWhite} alt='logo' height={200} width={200}/>
+            </div>
               <p className="text-gray-400 mb-6">
                 We help founders, organizations, and product teams turn complex
                 ideas into working digital products. From strategy to execution,
@@ -793,12 +763,16 @@ const InqordWebsite = () => {
                 <a href="@impactlayer.co">
                   <Instagram />
                 </a>
-                <a href="linkedin.com/company/impactlayer">
+                {/* <a href="linkedin.com/company/impactlayer">
                   <Linkedin />
                 </a>
                 <a href="@impactlayer">
                   <X />
-                </a>
+                </a> */}
+                <div className="h-5 w-5">
+
+                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 448 511.471"><path fill="#FF681A" d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/></svg>
+                </div>
               </div>
             </div>
 
@@ -811,22 +785,22 @@ const InqordWebsite = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#services" className="hover:text-white transition-colors">
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#about" className="hover:text-white transition-colors">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#testimonials" className="hover:text-white transition-colors">
                     Testimonials
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#contact" className="hover:text-white transition-colors">
                     Contact
                   </a>
                 </li>
@@ -842,20 +816,20 @@ const InqordWebsite = () => {
               <h3 className="font-semibold mb-6">Company</h3>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#about" className="hover:text-white transition-colors">
                     About Us
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" className="hover:text-white transition-colors">
                     Our Team
                   </a>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <a href="#" className="hover:text-white transition-colors">
                     Careers
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
                     Blog
