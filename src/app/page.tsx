@@ -28,12 +28,12 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/heroImg.jpg";
 import Image from "next/image";
-import logo from "@/assets/logo.png"
-import logoWhite from "@/assets/logo-white.png"
+import logo from "@/assets/main/logo.png"
+import logoWhite from "@/assets/main/logo-white.png"
 
-import provenWorkImg1 from "@/assets/proven-work/img-1.jpg";
-import provenWorkImg2 from "@/assets/proven-work/img-2.jpg";
-import provenWorkImg3 from "@/assets/proven-work/img-3.jpg";
+import provenWorkImg1 from "@/assets/proven-work-img/img-1.jpg";
+import provenWorkImg2 from "@/assets/proven-work-img/img-2.jpg";
+import provenWorkImg3 from "@/assets/proven-work-img/img-3.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import ContactForm from "@/components/contactForm";
