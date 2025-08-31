@@ -26,7 +26,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import heroImg from "@/assets/heroImg.jpg";
+import heroImg from "@/assets/main/heroImg.jpg";
 import Image from "next/image";
 import logo from "@/assets/main/logo.png"
 import logoWhite from "@/assets/main/logo-white.png"
