@@ -28,8 +28,8 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/main/heroImg.jpg";
 import Image from "next/image";
-import logo from "@/assets/main/logo.png"
-import logoWhite from "@/assets/main/logo-white.png"
+import logo from "@/assets/main/logo.png";
+import logoWhite from "@/assets/main/logo-white.png";
 
 import provenWorkImg1 from "@/assets/proven-work-img/img-1.jpg";
 import provenWorkImg2 from "@/assets/proven-work-img/img-2.jpg";
@@ -39,7 +39,7 @@ import "aos/dist/aos.css";
 import ContactForm from "@/components/contactForm";
 
 const InqordWebsite = () => {
-   useEffect(() => {
+  useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -215,7 +215,7 @@ const InqordWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="text-2xl font-bold text-gray-900">
-              <Image src={logo} alt='logo' height={200} width={200}/>
+              <Image src={logo} alt="logo" height={200} width={200} />
             </div>
 
             {/* Desktop Navigation */}
@@ -238,7 +238,7 @@ const InqordWebsite = () => {
               >
                 Services
               </a>
-             
+
               <a
                 href="#testimonials"
                 className="text-gray-700 hover:text-[#206CCA] transition-colors"
@@ -294,7 +294,7 @@ const InqordWebsite = () => {
                 >
                   Services
                 </a>
-               
+
                 <a
                   href="#testimonials"
                   className="text-gray-700 hover:text-[#206CCA] transition-colors"
@@ -360,6 +360,9 @@ const InqordWebsite = () => {
             {/* Stats */}
 
             <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={`https://wa.me/${"2348179888146"}?text=${"Hello! I found your website and would like to get in touch."}`}
+              ></a>
               <button className="bg-[#206CCA] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center">
                 Start A Project <ArrowRight className="ml-2 w-5 h-5" />
               </button>
@@ -371,13 +374,14 @@ const InqordWebsite = () => {
         </div>
       </section>
 
-      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4"
-       
-      >
-        <div className="bg-white p-6 rounded-lg shadow-md"   data-aos="fade-up"
-              data-aos-easing="ease-out"
-              data-aos-duration="400"
-              data-aos-once="true">
+      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4">
+        <div
+          className="bg-white p-6 rounded-lg shadow-md"
+          data-aos="fade-up"
+          data-aos-easing="ease-out"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
           <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Strategic Partnership
           </div>
@@ -386,10 +390,13 @@ const InqordWebsite = () => {
             collaboration, trust, and long-term value for every client we serve.
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md"   data-aos="fade-up"
-              data-aos-easing="ease-out"
-              data-aos-duration="400"
-              data-aos-once="true">
+        <div
+          className="bg-white p-6 rounded-lg shadow-md"
+          data-aos="fade-up"
+          data-aos-easing="ease-out"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
           <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Expert-Led Delivery
           </div>
@@ -398,10 +405,13 @@ const InqordWebsite = () => {
             and digital transformation, with a sharp focus on execution
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md sm:col-span-2 lg:col-span-1"   data-aos="fade-up"
-              data-aos-easing="ease-out"
-              data-aos-duration="400"
-              data-aos-once="true">
+        <div
+          className="bg-white p-6 rounded-lg shadow-md sm:col-span-2 lg:col-span-1"
+          data-aos="fade-up"
+          data-aos-easing="ease-out"
+          data-aos-duration="400"
+          data-aos-once="true"
+        >
           <div className="text-2xl font-bold text-[#206CCA] mb-2">
             Proven Track Record
           </div>
@@ -508,10 +518,10 @@ const InqordWebsite = () => {
               <div
                 key={index}
                 className="bg-[#eff3fa] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow group"
-                  data-aos="fade-up"
-              data-aos-easing="ease-out"
-              data-aos-duration="400"
-              data-aos-once="true"
+                data-aos="fade-up"
+                data-aos-easing="ease-out"
+                data-aos-duration="400"
+                data-aos-once="true"
               >
                 <div className="text-[#206CCA] mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
@@ -535,7 +545,9 @@ const InqordWebsite = () => {
         <div className="absolute inset-0 bg-[#eff3fa]"></div>
         <div className="container mx-auto px-4 relative flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-y-4 text-gray-900 justify-between mb-4">
-            <span className="text-[#206CCA] font-semibold mb-4">Working Process</span>
+            <span className="text-[#206CCA] font-semibold mb-4">
+              Working Process
+            </span>
             <p className="lg:text-6xl text-3xl font-bold">
               Explore our best <br /> proven work procedure.
             </p>
@@ -552,10 +564,10 @@ const InqordWebsite = () => {
                     className={`  rounded-lg flex flex-col lg:flex-row lg:items-center text-gray-900 gap-x-4 ${
                       i !== 1 && "lg:pl-8"
                     } `}
-                      data-aos="fade-left"
-              data-aos-easing="ease-out"
-              data-aos-duration="400"
-              data-aos-once="true"
+                    data-aos="fade-left"
+                    data-aos-easing="ease-out"
+                    data-aos-duration="400"
+                    data-aos-once="true"
                   >
                     <div className=" rounded-[15px] h-[60%] w-[50%] lg:h-36 lg:w-44 hover:scale-105 transition-transform cursor-pointer ">
                       <Image
@@ -566,7 +578,9 @@ const InqordWebsite = () => {
                       />
                     </div>
                     <div className="flex flex-col gap-y-2">
-                      <span className="font-bold text-xl text-[#001746]">{item.title}</span>
+                      <span className="font-bold text-xl text-[#001746]">
+                        {item.title}
+                      </span>
                       <p className="text-lg text-[#566E7C]">{item.subtitle}</p>
                     </div>
                   </div>
@@ -680,7 +694,9 @@ const InqordWebsite = () => {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    currentTestimonial === index ? "bg-[#206CCA]" : "bg-gray-300"
+                    currentTestimonial === index
+                      ? "bg-[#206CCA]"
+                      : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -721,7 +737,9 @@ const InqordWebsite = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                  <p className="text-gray-600">adaeze@impactlayer.tech</p>
+                  <a href="mailto:adaeze@impactlayer.tech">
+                    <p className="text-gray-600">Impact layer</p>
+                  </a>
                 </div>
               </div>
 
@@ -737,10 +755,22 @@ const InqordWebsite = () => {
             </div>
 
             {/* Contact Form */}
-          <ContactForm/>
+            <ContactForm />
           </div>
         </div>
       </section>
+      <div className="text-center mb-16 flex items-center flex-col gap-y-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          Subscribe to our newsletter
+        </h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          Contact us today to discuss how we can help your startup achieve its
+          goals and reach new heights of success.
+        </p>
+        <a target="blank" href="https://adaezeekwochi.substack.com/">
+          <button className="px-6 py-3 bg-[#206CCA] rounded-lg cursor-pointer">Join now</button>
+        </a>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16">
@@ -748,8 +778,8 @@ const InqordWebsite = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="text-2xl font-bold text-gray-900">
-              <Image src={logoWhite} alt='logo' height={200} width={200}/>
-            </div>
+                <Image src={logoWhite} alt="logo" height={200} width={200} />
+              </div>
               <p className="text-gray-400 mb-6">
                 We help founders, organizations, and product teams turn complex
                 ideas into working digital products. From strategy to execution,
@@ -770,8 +800,20 @@ const InqordWebsite = () => {
                   <X />
                 </a> */}
                 <div className="h-5 w-5">
-
-                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 448 511.471"><path fill="#FF681A" d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    shape-rendering="geometricPrecision"
+                    text-rendering="geometricPrecision"
+                    image-rendering="optimizeQuality"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    viewBox="0 0 448 511.471"
+                  >
+                    <path
+                      fill="#FF681A"
+                      d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -785,22 +827,34 @@ const InqordWebsite = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-white transition-colors">
+                  <a
+                    href="#services"
+                    className="hover:text-white transition-colors"
+                  >
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-white transition-colors">
+                  <a
+                    href="#testimonials"
+                    className="hover:text-white transition-colors"
+                  >
                     Testimonials
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-white transition-colors">
+                  <a
+                    href="#contact"
+                    className="hover:text-white transition-colors"
+                  >
                     Contact
                   </a>
                 </li>
@@ -816,7 +870,10 @@ const InqordWebsite = () => {
               <h3 className="font-semibold mb-6">Company</h3>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
                     About Us
                   </a>
                 </li>
