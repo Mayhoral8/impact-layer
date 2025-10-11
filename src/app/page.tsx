@@ -721,7 +721,7 @@ const InqordWebsite = () => {
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div className="space-y-8">
-              <div className="flex items-start space-x-4">
+              {/* <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
                   <Phone className="w-6 h-6 text-[#206CCA]" />
                 </div>
@@ -729,7 +729,7 @@ const InqordWebsite = () => {
                   <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
                   <p className="text-gray-600">+1 (555) 123-4567</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
@@ -768,7 +768,7 @@ const InqordWebsite = () => {
           goals and reach new heights of success.
         </p>
         <a target="blank" href="https://adaezeekwochi.substack.com/">
-          <button className="px-6 py-3 bg-[#206CCA] rounded-lg cursor-pointer">Join now</button>
+          <button className="px-6 py-3 bg-[#206CCA] rounded-lg cursor-pointer text-white">Join now</button>
         </a>
       </div>
 
