@@ -215,7 +215,7 @@ const InqordWebsite = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="text-2xl font-bold text-gray-900">
-              <Image src={logo} alt="logo" height={200} width={200} />
+              <Image src={logo} alt="logo" height={150} width={150} />
             </div>
 
             {/* Desktop Navigation */}
@@ -778,7 +778,7 @@ const InqordWebsite = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="text-2xl font-bold text-gray-900">
-                <Image src={logoWhite} alt="logo" height={200} width={200} />
+                <Image src={logoWhite} alt="logo" height={150} width={150} />
               </div>
               <p className="text-gray-400 mb-6">
                 We help founders, organizations, and product teams turn complex
