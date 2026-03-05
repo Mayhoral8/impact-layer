@@ -1,93 +1,87 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import heroImg from "@/assets/main/heroImg.jpg";
+import logoWhite from "@/assets/main/logo-white.png";
+import logo from "@/assets/main/logo.png";
 import {
-  Menu,
-  X,
+  Activity,
   ArrowRight,
-  CheckCircle,
-  Star,
-  Users,
-  Clock,
-  Award,
-  Zap,
-  Shield,
-  TrendingUp,
-  Target,
-  Lightbulb,
-  Settings,
-  Phone,
-  Mail,
-  MapPin,
-  Play,
+  ArrowUpRight,
+  Briefcase,
   ChevronLeft,
   ChevronRight,
-  PhoneCall,
   Facebook,
   Instagram,
+  Lightbulb,
   Linkedin,
+  Mail,
+  Map,
+  MapPin,
+  Menu,
+  Settings,
+  Shield,
+  Star,
+  Target,
+  TrendingUp,
+  X,
 } from "lucide-react";
-import heroImg from "@/assets/main/heroImg.jpg";
 import Image from "next/image";
-import logo from "@/assets/main/logo.png";
-import logoWhite from "@/assets/main/logo-white.png";
+import { useEffect, useState } from "react";
 
-import provenWorkImg1 from "@/assets/proven-work-img/img-1.jpg";
-import provenWorkImg2 from "@/assets/proven-work-img/img-2.jpg";
-import provenWorkImg3 from "@/assets/proven-work-img/img-3.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import ContactForm from "@/components/contactForm";
 
 const InqordWebsite = () => {
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration: 1000, once: true });
   }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  // TIVA Red brand color
+  const PRIMARY_RED = "#D11E26";
+
   const services = [
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-7 h-7" />,
       title: "Digital Transformation Strategy",
       description:
         "We assess your current systems and processes, then design a practical roadmap to help you shift into a digital-first operation, securely and efficiently.",
-      subtext: "NGOs, SMEs, public sector teams, and social enterprises.",
+      subtext: "NGOs, SMEs, public sector groups",
     },
     {
-      icon: <Lightbulb className="w-8 h-8" />,
+      icon: <Lightbulb className="w-7 h-7" />,
       title: "Innovation Solutions",
       description:
-        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency to achieve sustainable growth and market success.",
-      subtext: "Founders, dev agencies, innovation teams, and social startups.",
+        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency.",
+      subtext: "Founders, dev agencies, social startups",
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-7 h-7" />,
       title: "Strategic Planning",
       description:
-        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency to achieve sustainable growth and market success.",
-      subtext: "INGOs, foundations, development agencies.",
+        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency.",
+      subtext: "INGOs, foundations, dev agencies",
     },
     {
-      icon: <Award className="w-8 h-8" />,
-      title: "Secure Tech for Development Advisory",
+      icon: <Shield className="w-7 h-7" />,
+      title: "Secure Tech Advisory",
       description:
-        "We help you build and assess digital systems with cybersecurity, user protection, and ethical tech at the core, especially in sensitive or large-scale contexts.",
-      subtext: "Civic tech projects, GovTech teams, donor-funded programs.",
+        "We help you build and assess digital systems with cybersecurity, user protection, and ethical tech at the core, especially in large-scale contexts.",
+      subtext: "Civic tech projects, GovTech teams",
     },
     {
-      icon: <Settings className="w-8 h-8" />,
+      icon: <Settings className="w-7 h-7" />,
       title: "Training & Capacity Building",
       description:
-        "We deliver practical, hands-on training for teams and leaders in product thinking, agile execution, innovation management, and digital delivery.",
-      subtext:
-        "Program managers, internal teams, early-stage PMs, tech-for-good teams.",
+        "We deliver practical, hands-on training for teams and leaders in product thinking, agile execution, innovation management.",
+      subtext: "Program managers, internal teams",
     },
     {
-      icon: <Settings className="w-8 h-8" />,
+      icon: <Activity className="w-7 h-7" />,
       title: "Retainer Packages (Monthly)",
       description:
-        "For ongoing product strategy, digital oversight, or fractional PM support, we offer monthly retainers tailored to your needs, from lightweight advisory to deep hands-on engagement.",
-      subtext: "Founders, startup teams, delivery leads, and program managers.",
+        "For ongoing product strategy, digital oversight, or fractional PM support, we offer monthly retainers tailored to your needs.",
+      subtext: "Founders, startup teams, delivery leads",
     },
   ];
 
@@ -97,18 +91,21 @@ const InqordWebsite = () => {
       title: "Assessment and Planning",
       description:
         "We analyze your current situation and create a comprehensive plan for success.",
+      icon: <Map className="w-5 h-5 text-white" />,
     },
     {
       step: "02",
       title: "Solution and Development",
       description:
         "Our team develops and implements tailored solutions for your specific needs.",
+      icon: <Settings className="w-5 h-5 text-white" />,
     },
     {
       step: "03",
       title: "Support and Optimization",
       description:
         "Ongoing support and continuous optimization to ensure sustained growth.",
+      icon: <TrendingUp className="w-5 h-5 text-white" />,
     },
   ];
 
@@ -119,8 +116,6 @@ const InqordWebsite = () => {
       content:
         "ImpactLayer helped us move from idea to execution faster than we imagined. Their process was structured, collaborative, and results-driven. We now have a working MVP that speaks for itself.",
       rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face",
     },
     {
       name: "Tolu E.",
@@ -128,8 +123,6 @@ const InqordWebsite = () => {
       content:
         "Working with Adaeze and her team was a game-changer. They brought clarity to our project and managed everything from scope to delivery with zero chaos. Highly recommended",
       rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face",
     },
     {
       name: "Lami B.",
@@ -137,8 +130,6 @@ const InqordWebsite = () => {
       content:
         "They didn’t just advise, they got into the trenches with us. From product strategy to user testing, the support was top-tier.",
       rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     },
     {
       name: "Chinedu O.",
@@ -146,55 +137,24 @@ const InqordWebsite = () => {
       content:
         "We’d been stuck in endless planning loops. ImpactLayer came in, clarified our roadmap, and helped us launch in 10 weeks. It was the execution muscle we didn’t know we needed.",
       rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
-    },
-    {
-      name: "Hafsat A.",
-      role: "Director, Development Initiative",
-      content:
-        "They understood our mission and translated it into a digital solution that works, without overcomplicating things. The team was responsive, patient, and deeply strategic.",
-      rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
-    },
-    {
-      name: "Brian K.",
-      role: "Founder, Fintech Platform",
-      content:
-        "We didn’t just get a product—we got a partner. From building our MVP to post-launch support, their level of ownership was rare",
-      rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
-    },
-    {
-      name: "Ijeoma N.",
-      role: "Innovation Lead, International Nonprofit",
-      content:
-        "Their training changed how we approach digital delivery. It wasn’t theory, it was hands-on, contextual, and instantly applicable to our projects.",
-      rating: 5,
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     },
   ];
-  const provenWorkExperience = [
+
+  const keyBenefits = [
     {
-      title: "Assessment and Planning",
-      subtitle:
-        "In this initial step, the focus is on understanding the specific needs with",
-      imageSrc: provenWorkImg1,
+      icon: <Briefcase className="w-6 h-6" />,
+      title: "Strategic Partnership",
+      desc: "We don't just consult, we co-create. Grounded in collaboration and trust.",
     },
     {
-      title: "Solution and development",
-      subtitle:
-        "With a plan in place, the development and implementation process begins.",
-      imageSrc: provenWorkImg2,
+      icon: <Activity className="w-6 h-6" />,
+      title: "Expert-Led Delivery",
+      desc: "Deep expertise in product strategy and digital transformation.",
     },
     {
-      title: "Support and Optimization",
-      subtitle:
-        "After the solution is deployed, ongoing are essential long-term success.",
-      imageSrc: provenWorkImg3,
+      icon: <Target className="w-6 h-6" />,
+      title: "Proven Track Record",
+      desc: "From idea to implementation, we've supported high-impact teams natively.",
     },
   ];
 
@@ -204,246 +164,186 @@ const InqordWebsite = () => {
 
   const prevTestimonial = () => {
     setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
 
   return (
-    <div className="min-h-screen bg-white scroll-smooth">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-gray-900">
-              <Image src={logo} alt="logo" height={150} width={150} />
+    <div className="min-h-screen bg-[#fafafa] scroll-smooth font-sans text-[#1a1a1a]">
+      {/* Navbar - Tiva Style (Transparent on top, sticky black/white) */}
+      <header className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between h-[80px]">
+            <div className="text-2xl font-bold flex-shrink-0">
+              {/* If you have a clear logo use it, assuming standard logo here */}
+              <Image
+                src={logo}
+                alt="Impact Layer"
+                height={40}
+                width={140}
+                className="object-contain"
+              />
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8">
+            <nav className="hidden lg:flex space-x-10">
               <a
                 href="#home"
-                className="text-gray-700 hover:text-[#206CCA] transition-colors"
+                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="text-gray-700 hover:text-[#206CCA] transition-colors"
+                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
               >
                 About
               </a>
               <a
                 href="#services"
-                className="text-gray-700 hover:text-[#206CCA] transition-colors"
+                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
               >
                 Services
               </a>
-
               <a
                 href="#testimonials"
-                className="text-gray-700 hover:text-[#206CCA] transition-colors"
+                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
+              >
+                Testimonials
+              </a>
+            </nav>
+
+            <div className="hidden lg:flex items-center">
+              <a
+                href="#contact"
+                className="bg-[#D11E26] text-white text-[15px] font-medium px-7 py-3 rounded-md hover:bg-red-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-[1px]"
+              >
+                Book a Consultation
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-gray-900"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-7 h-7" />
+              ) : (
+                <Menu className="w-7 h-7" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="lg:hidden absolute top-[80px] left-0 right-0 bg-white border-b border-gray-100 shadow-lg pb-6 pt-2 px-4 z-50">
+            <div className="flex flex-col space-y-5">
+              <a
+                href="#home"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
+              >
+                About
+              </a>
+              <a
+                href="#services"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
+              >
+                Services
+              </a>
+              <a
+                href="#testimonials"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
               >
                 Testimonials
               </a>
               <a
                 href="#contact"
-                className="text-gray-700 hover:text-[#206CCA] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-[#D11E26] text-white text-center font-medium px-6 py-3 rounded-md w-full mt-2"
               >
-                Contact
+                Book a Consultation
               </a>
-            </nav>
-
-            <div className="hidden lg:block">
-              <button className="bg-[#206CCA] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Get Started
-              </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-900" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-900" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <nav className="lg:hidden py-4 border-t border-gray-200">
-              <div className="flex flex-col space-y-4">
-                <a
-                  href="#home"
-                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="#about"
-                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#services"
-                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
-                >
-                  Services
-                </a>
-
-                <a
-                  href="#testimonials"
-                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
-                >
-                  Testimonials
-                </a>
-                <a
-                  href="#contact"
-                  className="text-gray-700 hover:text-[#206CCA] transition-colors"
-                >
-                  Contact
-                </a>
-                <button className="bg-[#206CCA] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
-                  Get Started
-                </button>
-              </div>
-            </nav>
-          )}
-        </div>
+          </nav>
+        )}
       </header>
 
-      {/* Hero Section */}
-      <section id="home" className="lg:py-20 py-0  relative z-10 ">
-        <div className="absolute z-[-10] bottom-0 top-0 right-0 left-0 hidden lg:block ">
-          {/* Blue overlay */}
-          <div className="absolute inset-0 bg-gray-900 opacity-70 z-10 " />
-
-          {/* Background image */}
+      {/* Hero Section - Tiva Style (Dark with red accent text) */}
+      <section
+        id="home"
+        className="relative pt-24 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#050505] text-white"
+      >
+        {/* Dark overlay with heroImg */}
+        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity">
           <Image
             src={heroImg}
             alt="background"
+            layout="fill"
             objectFit="cover"
-            className="w-full h-full object-cover "
+            priority
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-[#0a0a0a]/90 to-transparent z-0"></div>
+        {/* Subtle red glow mimicking Tiva */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent z-0 opacity-70 blur-3xl"></div>
 
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto  gap-12 items-center">
-            <div className="absolute z-[-10] bottom-150 top-0 right-0 left-0 lg:hidden block h-[400px]">
-              {/* Blue overlay */}
-              <div className="absolute inset-0 bg-gray-900 opacity-60 z-10" />
-
-              {/* Background image */}
-              <Image
-                src={heroImg}
-                alt="background"
-                objectFit="cover"
-                className="w-full object-cover h-[400px]"
-              />
-            </div>
-            <div className="text-center lg:text-left py-20 lg:py-0">
-              <h1 className="text-3xl lg:text-6xl font-bold text-gray-100 mb-6 leading-tight">
-                Leading with
-                <span className="text-[#206CCA] block">technology</span>
-                delivering with trust.
-              </h1>
-              <p className="text-lg lg:text-2xl text-gray-100 mb-8 leading-relaxed">
-                Offers tailored consulting service to ignite startup growth.
-                From strategic planning to implementation, we empower
-                entrepreneurs with tools for success in competitive markets.
-              </p>
-            </div>
-            {/* Stats */}
-
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-4xl" data-aos="fade-up">
+            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] tracking-tight mb-8">
+              Leading with <span className="text-[#D11E26]">technology,</span>{" "}
+              <br className="hidden lg:block" />
+              delivering with trust.
+            </h1>
+            <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed font-light">
+              Offers tailored consulting service to ignite startup growth. From
+              strategic planning to implementation, we empower entrepreneurs
+              with tools for success in competitive markets.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href={`https://wa.me/${"2348179888146"}?text=${"Hello! I found your website and would like to get in touch."}`}
-              ></a>
-              <button className="bg-[#206CCA] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center">
+                href="#contact"
+                className="bg-[#D11E26] text-white px-8 py-4 rounded-md hover:bg-red-700 transition font-semibold text-[16px] flex items-center justify-center shadow-[0_4px_14px_0_rgb(209,30,38,0.39)]"
+              >
                 Start A Project <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
-              <button className="border-2 border-[#206CCA] text-[#206CCA] px-8 py-4 rounded-lg font-semibold hover:bg-[#206CCA] hover:text-white transition-colors flex items-center justify-center">
-                <PhoneCall className="mr-2 w-5 h-5" /> Talk With An Expert
-              </button>
+              </a>
+              <a
+                href="#services"
+                className="border border-gray-600 text-white px-8 py-4 rounded-md hover:bg-white hover:text-black transition font-semibold text-[16px] flex items-center justify-center"
+              >
+                Talk With An Expert{" "}
+                <ArrowUpRight className="ml-2 w-5 h-5 opacity-70" />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <div className=" lg:mt-[-50px] relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 lg:px-40 px-4">
-        <div
-          className="bg-white p-6 rounded-lg shadow-md"
-          data-aos="fade-up"
-          data-aos-easing="ease-out"
-          data-aos-duration="400"
-          data-aos-once="true"
-        >
-          <div className="text-2xl font-bold text-[#206CCA] mb-2">
-            Strategic Partnership
-          </div>
-          <div className="text-gray-600">
-            We don’t just consult, we co-create. Our work is grounded in
-            collaboration, trust, and long-term value for every client we serve.
-          </div>
-        </div>
-        <div
-          className="bg-white p-6 rounded-lg shadow-md"
-          data-aos="fade-up"
-          data-aos-easing="ease-out"
-          data-aos-duration="400"
-          data-aos-once="true"
-        >
-          <div className="text-2xl font-bold text-[#206CCA] mb-2">
-            Expert-Led Delivery
-          </div>
-          <div className="text-gray-600">
-            Our team brings deep expertise in product strategy, platform design,
-            and digital transformation, with a sharp focus on execution
-          </div>
-        </div>
-        <div
-          className="bg-white p-6 rounded-lg shadow-md sm:col-span-2 lg:col-span-1"
-          data-aos="fade-up"
-          data-aos-easing="ease-out"
-          data-aos-duration="400"
-          data-aos-once="true"
-        >
-          <div className="text-2xl font-bold text-[#206CCA] mb-2">
-            Proven Track Record
-          </div>
-          <div className="text-gray-600">
-            From idea to implementation, we’ve supported high-impact teams and
-            ventures across sectors to launch scalable, user-centered digital
-            products.
-          </div>
-        </div>
-      </div>
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-full ">
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=500&fit=crop"
-                alt="About us"
-                className="w-full h-80 lg:h-full object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-
-            <div className="h-full ">
-              <div className="text-[#206CCA] font-semibold mb-4">About us</div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Grounded in Strategy,
-                <br />
-                <span className="text-xl lg:text-3xl">
-                  Focused on Outcomes.
-                </span>
+      {/* About Section - "More Than Digital Services. We Build Digital Businesses." */}
+      <section id="about" className="py-20 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            {/* Left Content (Tiva Style - Bold heading) */}
+            <div className="lg:col-span-5" data-aos="fade-right">
+              <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-5 flex items-center gap-2">
+                <span className="w-8 h-[2px] bg-[#D11E26]"></span> About Us
+              </div>
+              <h2 className="text-4xl lg:text-[50px] font-bold text-gray-900 leading-[1.15] mb-6 tracking-tight">
+                Grounded in Strategy, <br />
+                <span className="text-[#D11E26]">Focused on Outcomes.</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-[17px] text-gray-600 leading-relaxed mb-8">
                 ImpactLayer is a product innovation and delivery firm. We work
                 with founders, startups, and forward-thinking teams to turn
                 ideas into usable, scalable digital products. Whether you're
@@ -452,252 +352,267 @@ const InqordWebsite = () => {
                 right tech team and shipping your product. Fast, structured, and
                 outcome-driven.
               </p>
-              <div>
-                <h1 className="text-gray-900 font-bold">
+
+              <div className="p-6 bg-[#fafafa] border-l-4 border-[#D11E26] rounded-r-lg">
+                <h4 className="font-bold text-gray-900 mb-2">
                   On-Demand Expert Support
-                </h1>
-                <p className="text-lg text-gray-600 mb-8">
+                </h4>
+                <p className="text-gray-600 text-[15px]">
                   Tap into our team of product strategists, consultants, and
                   transformation specialists anytime you need to move with
                   confidence.
                 </p>
               </div>
-              <article className="flex lg:flex-row flex-col items-center justify-start gap-x-4 rounded-xl gap-y-4">
-                <div className=" bg-[#206CCA] text-white py-2 px-8 rounded-xl shadow-lg">
-                  <div className="text-2xl font-bold">24/7</div>
-                  <div className="text-sm">Support</div>
-                </div>
-                <div className="">
-                  <h1 className="text-gray-900 font-bold ">
-                    Call to ask anything:
-                  </h1>
-                  <p className="text-lg text-gray-600 ">+234-9070770139</p>
-                </div>
-              </article>
-
-              {/* <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
-                  <span className="text-gray-700">Dedicated 24/7 support</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
-                  <span className="text-gray-700">Agile & fast working</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
-                  <span className="text-gray-700">
-                    Expert team of professionals
-                  </span>
-                </div>
-              </div> */}
             </div>
+
+            {/* Right Content (Tiva Style - Soft red icons in list) */}
+            <div
+              className="lg:col-span-6 lg:col-start-7 space-y-8"
+              data-aos="fade-left"
+            >
+              {keyBenefits.map((benefit, idx) => (
+                <div key={idx} className="flex gap-5 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#FFF0F0] flex items-center justify-center text-[#D11E26] group-hover:scale-110 transition-transform duration-300">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-[16px]">
+                      {benefit.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Centered statement at bottom of About */}
+          <div
+            className="mt-24 text-center max-w-3xl mx-auto"
+            data-aos="fade-up"
+          >
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug">
+              We don't just advise.{" "}
+              <span className="text-[#D11E26]">
+                We design, implement, and stay with you through execution.
+              </span>
+            </h3>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="text-[#206CCA] font-semibold mb-4">
-              What we offer
+      {/* Services Section - Tiva Style Cards */}
+      <section
+        id="services"
+        className="py-24 bg-[#fafafa] relative overflow-hidden"
+      >
+        {/* Subtle background patterns */}
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0 transform translate-x-1/2 -translate-y-1/2"></div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
+              What We Offer
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              High-impact design and development service
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+              Your Digital Consulting & Transformation Partner
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive solutions to help startups and businesses
-              achieve their goals through innovative strategies and cutting-edge
-              technology.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-[#eff3fa] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow group"
+                className="bg-white p-10 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
                 data-aos="fade-up"
-                data-aos-easing="ease-out"
-                data-aos-duration="400"
-                data-aos-once="true"
+                data-aos-delay={index * 100}
               >
-                <div className="text-[#206CCA] mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 rounded-[18px] bg-[#FFF0F0] text-[#D11E26] flex items-center justify-center mb-6 group-hover:bg-[#D11E26] group-hover:text-white transition-colors duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                <h3 className="text-[22px] font-bold mb-4 text-gray-900 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <button className="text-[#206CCA] font-semibold hover:text-blue-700 transition-colors flex items-center">
-                  Who's it for:
-                </button>
-                <span className="text-gray-900">{service.subtext}</span>
+                <p className="text-gray-600 mb-6 leading-relaxed text-[16px]">
+                  {service.description}
+                </p>
+                <div className="mt-auto border-t border-gray-100 pt-5">
+                  <span className="text-[14px] font-bold text-gray-400 uppercase tracking-wide block mb-1">
+                    Who it's for
+                  </span>
+                  <span className="text-[#D11E26] font-medium text-[15px]">
+                    {service.subtext}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-[#206CCA] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#eff3fa]"></div>
-        <div className="container mx-auto px-4 relative flex flex-col lg:flex-row lg:justify-between">
-          <div className="flex flex-col gap-y-4 text-gray-900 justify-between mb-4">
-            <span className="text-[#206CCA] font-semibold mb-4">
-              Working Process
-            </span>
-            <p className="lg:text-6xl text-3xl font-bold">
-              Explore our best <br /> proven work procedure.
-            </p>
-            <button className="border block ml-right w-fit lg:px-10 px-6 lg:py-4 py-2 rounded-[20px]">
-              Explore More
-            </button>
+      {/* Working Process Section - Pink Cards  */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
+              Our Process
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+              Strategic Programs for Every Growth Stage
+            </h2>
           </div>
-          <div>
-            <section className="flex flex-col gap-y-10">
-              {provenWorkExperience.map((item, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={`  rounded-lg flex flex-col lg:flex-row lg:items-center text-gray-900 gap-x-4 ${
-                      i !== 1 && "lg:pl-8"
-                    } `}
-                    data-aos="fade-left"
-                    data-aos-easing="ease-out"
-                    data-aos-duration="400"
-                    data-aos-once="true"
-                  >
-                    <div className=" rounded-[15px] h-[60%] w-[50%] lg:h-36 lg:w-44 hover:scale-105 transition-transform cursor-pointer ">
-                      <Image
-                        src={item.imageSrc}
-                        alt="impact-layer proven work experience"
-                        className="border w-full h-full rounded-[15px]"
-                        objectFit="contain"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-y-2">
-                      <span className="font-bold text-xl text-[#001746]">
-                        {item.title}
-                      </span>
-                      <p className="text-lg text-[#566E7C]">{item.subtitle}</p>
+
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6">
+              {workProcess.map((process, index) => (
+                <div
+                  key={index}
+                  className="bg-[#FFF0F0] p-10 rounded-2xl transition-all duration-300 relative overflow-hidden group hover:shadow-md"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 150}
+                >
+                  {/* Decorative large number in background */}
+                  <div className="absolute -right-6 -bottom-10 text-[150px] font-black text-[#D11E26] opacity-[0.03] leading-none pointer-events-none transition-transform group-hover:scale-110">
+                    {process.step}
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-8">
+                    <span className="text-2xl font-black text-[#D11E26]">
+                      {process.step}
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-[#D11E26] flex items-center justify-center shadow-lg">
+                      {process.icon}
                     </div>
                   </div>
-                );
-              })}
-            </section>
+
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900 relative z-10">
+                    {process.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-[16px] relative z-10">
+                    {process.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 text-center" data-aos="fade-up">
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center bg-[#D11E26] text-white px-8 py-4 rounded-md font-semibold hover:bg-red-700 transition shadow-[0_4px_14px_0_rgb(209,30,38,0.39)] hover:shadow-[0_6px_20px_rgba(209,30,38,0.23)] hover:-translate-y-0.5"
+              >
+                Explore All Offerings <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Working Process Section */}
-      {/* <section id="process" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="text-[#206CCA] font-semibold mb-4">
-              Working process
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Explore our best proven work procedure
+      {/* Red Banner Full Width CTA */}
+      <section className="py-24 bg-[#D11E26] text-white relative overflow-hidden">
+        {/* Very subtle pattern inside red to mimic Tiva's mesh */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        ></div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <h2 className="text-4xl lg:text-[56px] font-bold leading-[1.15] tracking-tight mb-8">
+              Built for Local Realities. <br /> Designed for Global Standards.
             </h2>
-          </div>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              {workProcess.map((process, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-8">
-                    <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-[#206CCA] rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-105 transition-transform">
-                      {process.step}
-                    </div>
-                    {index < workProcess.length - 1 && (
-                      <div className="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-gray-300 -z-10"></div>
-                    )}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                    {process.title}
-                  </h3>
-                  <p className="text-gray-600">{process.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="text-[#206CCA] font-semibold mb-4">Testimonial</div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              See what our customers are saying
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We don’t just deliver work, we build lasting relationships. Our
-              clients trust us because we listen, we lead with clarity, and we
-              care about what success means for them.
+            <p className="text-xl text-red-100 max-w-2xl mx-auto font-light">
+              We're the execution muscle you didn't know you needed. Tap into
+              our team of product strategists and build something lasting.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="max-w-4xl mx-auto relative">
-            <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg">
-              <div className="flex items-center justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-6 h-6 text-yellow-400 fill-current"
-                  />
-                ))}
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-24 bg-[#fafafa]">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
+              Tested & Proven
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+              Trusted by Forward-Thinking Leaders
+            </h2>
+          </div>
+
+          <div className="max-w-5xl mx-auto relative group">
+            {/* Tiva Style - White card, soft border/shadow, avatar with red */}
+            <div
+              className="bg-white p-10 lg:p-14 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all min-h-[300px] flex flex-col justify-center border border-gray-100 relative overflow-hidden"
+              data-aos="fade-up"
+            >
+              {/* Subtle Quote Mark */}
+              <div className="absolute top-6 left-8 text-[120px] font-serif text-[#FFF0F0] leading-none select-none">
+                "
               </div>
 
-              <blockquote className="text-xl lg:text-2xl text-gray-700 text-center mb-8 italic">
-                "{testimonials[currentTestimonial].content}"
-              </blockquote>
+              <div className="relative z-10">
+                <div className="flex items-center mb-8 gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-[#D11E26] fill-current"
+                    />
+                  ))}
+                </div>
 
-              <div className="flex items-center justify-center">
-                {/* <img
-                  src={testimonials[currentTestimonial].avatar}
-                  alt={testimonials[currentTestimonial].name}
-                  className="w-16 h-16 rounded-full mr-4"
-                /> */}
-                <div className="text-center">
-                  <div className="font-semibold text-gray-900 text-lg">
-                    {testimonials[currentTestimonial].name}
+                <blockquote className="text-2xl lg:text-[28px] text-gray-800 leading-snug mb-10 font-medium">
+                  {testimonials[currentTestimonial].content}
+                </blockquote>
+
+                <div className="flex items-center">
+                  <div className="w-14 h-14 rounded-full bg-[#FFF0F0] flex items-center justify-center text-[#D11E26] font-bold text-xl mr-4 border border-red-100">
+                    {testimonials[currentTestimonial].name.charAt(0)}
                   </div>
-                  <div className="text-gray-600">
-                    {testimonials[currentTestimonial].role}
+                  <div>
+                    <div className="font-bold text-gray-900 text-[17px]">
+                      {testimonials[currentTestimonial].name}
+                    </div>
+                    <div className="text-gray-500 text-[15px]">
+                      {testimonials[currentTestimonial].role}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Navigation */}
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-4 lg:top-1/2 top-0 transform -translate-y-1/2 bg-[#206CCA] text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-4 lg:top-1/2 top-0  transform -translate-y-1/2 bg-[#206CCA] text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+            {/* Navigation (Tiva style - outside or soft overlaid buttons) */}
+            <div className="flex justify-center mt-10 gap-4">
+              <button
+                onClick={prevTestimonial}
+                className="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-[#D11E26] hover:text-white hover:border-[#D11E26] transition-all shadow-sm"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-[#D11E26] hover:text-white hover:border-[#D11E26] transition-all shadow-sm"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
 
-            {/* Dots */}
-            <div className="flex justify-center mt-8 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     currentTestimonial === index
-                      ? "bg-[#206CCA]"
-                      : "bg-gray-300"
+                      ? "bg-[#D11E26] w-8"
+                      : "bg-gray-300 hover:bg-gray-400"
                   }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
@@ -705,218 +620,213 @@ const InqordWebsite = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Contact us today to discuss how we can help your startup achieve
-              its goals and reach new heights of success.
-            </p>
-          </div>
+      {/* Footer CTA Section - Tiva Style (White/Patterned background) */}
+      <section className="py-24 bg-white relative border-t border-gray-100">
+        {/* Subtle pattern matching Tiva footer CTA area */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)",
+            backgroundSize: "20px 20px",
+            backgroundPosition: "0 0, 10px 10px",
+          }}
+        ></div>
 
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div className="space-y-8">
-              {/* <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Phone className="w-6 h-6 text-[#206CCA]" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                </div>
-              </div> */}
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Mail className="w-6 h-6 text-[#206CCA]" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                  <a href="mailto:adaeze@impactlayer.tech">
-                    <p className="text-gray-600">Impact layer</p>
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-[#206CCA]" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Location</h3>
-                  <p className="text-gray-600">Nigeria</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <ContactForm />
+        <div
+          className="container mx-auto px-4 lg:px-8 relative z-10 text-center"
+          id="contact"
+        >
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            Ready to Build a{" "}
+            <span className="text-[#D11E26]">Digital World?</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+            Let's discuss how our strategies and frameworks can help your
+            business achieve its goals and secure its market position.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="mailto:adaeze@impactlayer.tech"
+              className="bg-[#D11E26] text-white px-8 py-4 rounded-md font-semibold hover:bg-red-700 transition shadow-lg flex justify-center items-center"
+            >
+              Book a Strategy Session
+            </a>
+            <a
+              target="_blank"
+              href="https://adaezeekwochi.substack.com/"
+              className="border border-gray-300 text-gray-800 bg-white px-8 py-4 rounded-md font-semibold hover:border-gray-800 transition flex justify-center items-center"
+            >
+              Subscribe to Newsletter
+            </a>
           </div>
         </div>
       </section>
-      <div className="text-center mb-16 flex items-center flex-col gap-y-4">
-        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-          Subscribe to our newsletter
-        </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Contact us today to discuss how we can help your startup achieve its
-          goals and reach new heights of success.
-        </p>
-        <a target="blank" href="https://adaezeekwochi.substack.com/">
-          <button className="px-6 py-3 bg-[#206CCA] rounded-lg cursor-pointer text-white">Join now</button>
-        </a>
-      </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="text-2xl font-bold text-gray-900">
-                <Image src={logoWhite} alt="logo" height={150} width={150} />
+      {/* Global Footer - Tiva Style (Black with sharp clean text) */}
+      <footer className="bg-[#050505] text-white pt-20 pb-8">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div className="lg:col-span-1">
+              <div className="mb-8">
+                <Image
+                  src={logoWhite}
+                  alt="Impact Layer Logo"
+                  height={45}
+                  width={160}
+                  className="object-contain"
+                />
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-400 mb-8 leading-relaxed font-light text-[15px]">
                 We help founders, organizations, and product teams turn complex
                 ideas into working digital products. From strategy to execution,
-                we deliver clarity, speed, and results you can launch.
+                we deliver clarity and results.
               </p>
-
-              <div className="flex flex-row gap-x-3">
-                <a href="facebook.com/impactlayer">
-                  <Facebook />
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
+                >
+                  <Facebook size={18} />
                 </a>
-                <a href="@impactlayer.co">
-                  <Instagram />
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
+                >
+                  <Instagram size={18} />
                 </a>
-                {/* <a href="linkedin.com/company/impactlayer">
-                  <Linkedin />
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
+                >
+                  <Linkedin size={18} />
                 </a>
-                <a href="@impactlayer">
-                  <X />
-                </a> */}
-                <div className="h-5 w-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    shape-rendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    viewBox="0 0 448 511.471"
-                  >
-                    <path
-                      fill="#FF681A"
-                      d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-6">Quick Links (solutions)</h3>
-              <ul className="space-y-3 text-gray-400">
+              <h4 className="text-lg font-semibold mb-6 tracking-wide">
+                Solutions
+              </h4>
+              <ul className="space-y-4">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Home
+                  <a
+                    href="#services"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
+                  >
+                    Digital Transformation
                   </a>
                 </li>
                 <li>
                   <a
                     href="#services"
-                    className="hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
                   >
-                    Services
+                    Innovation Solutions
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#about"
-                    className="hover:text-white transition-colors"
+                    href="#services"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
                   >
-                    About
+                    Strategic Planning
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
+                  >
+                    Training & Capacity
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-6 tracking-wide">
+                Company
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <a
+                    href="#about"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
+                  >
+                    About Us
                   </a>
                 </li>
                 <li>
                   <a
                     href="#testimonials"
-                    className="hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
                   >
                     Testimonials
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#contact"
-                    className="hover:text-white transition-colors"
+                    href="https://adaezeekwochi.substack.com/"
+                    target="_blank"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
                   >
-                    Contact
+                    Newsletter
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Request a Project Estimate
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-6">Company</h3>
-              <ul className="space-y-3 text-gray-400">
                 <li>
                   <a
-                    href="#about"
-                    className="hover:text-white transition-colors"
+                    href="#contact"
+                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
                   >
-                    About Us
-                  </a>
-                </li>
-                {/* <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Our Team
-                  </a>
-                </li> */}
-                {/* <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </a>
-                </li> */}
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
+                    Contact Support
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-6">Contact</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  {" "}
-                  <span className="font-bold">Address</span> <br /> Abuja,
-                  Nigeria (Remote, Global Access)
+              <h4 className="text-lg font-semibold mb-6 tracking-wide">
+                Get in Touch
+              </h4>
+              <ul className="space-y-5">
+                <li className="flex items-start gap-3 text-gray-400 text-[15px]">
+                  <MapPin
+                    size={20}
+                    className="text-[#D11E26] flex-shrink-0 mt-0.5"
+                  />
+                  <span>
+                    Abuja, Nigeria <br /> (Remote, Global Access)
+                  </span>
                 </li>
-                <li>
-                  {" "}
-                  <span className="font-bold">Opening Hours</span> <br />{" "}
-                  Weekdays: 09:00 – 17:00
-                  <br />
-                  Saturday: 10:00 – 14:00
+                <li className="flex items-start gap-3 text-gray-400 text-[15px]">
+                  <Mail
+                    size={20}
+                    className="text-[#D11E26] flex-shrink-0 mt-0.5"
+                  />
+                  <a
+                    href="mailto:adaeze@impactlayer.tech"
+                    className="hover:text-white transition-colors"
+                  >
+                    adaeze@impactlayer.tech
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>© 2025 ImpactLayer. All rights reserved.</p>
-            <p>Terms & Conditions | Privacy Policy | Legal</p>
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>
+              © {new Date().getFullYear()} ImpactLayer. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-gray-300 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-gray-300 transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </footer>
