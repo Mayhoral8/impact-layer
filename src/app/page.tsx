@@ -1,837 +1,647 @@
 "use client";
-import heroImg from "@/assets/main/heroImg.jpg";
-import logoWhite from "@/assets/main/logo-white.png";
-import logo from "@/assets/main/logo.png";
-import {
-  Activity,
-  ArrowRight,
-  ArrowUpRight,
-  Briefcase,
-  ChevronLeft,
-  ChevronRight,
-  Facebook,
-  Instagram,
-  Lightbulb,
-  Linkedin,
-  Mail,
-  Map,
-  MapPin,
-  Menu,
-  Settings,
-  Shield,
-  Star,
-  Target,
-  TrendingUp,
-  X,
-} from "lucide-react";
+import heroImg from "@/assets/main/hero-img.jpeg";
+import logoNew from "@/assets/main/logo-new.png";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+export default function AdaezePage() {
+  const revealRefs = useRef<HTMLElement[]>([]);
 
-import Aos from "aos";
-import "aos/dist/aos.css";
-
-const InqordWebsite = () => {
   useEffect(() => {
-    Aos.init({ duration: 1000, once: true });
-  }, []);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  // TIVA Red brand color
-  const PRIMARY_RED = "#D11E26";
-
-  const services = [
-    {
-      icon: <TrendingUp className="w-7 h-7" />,
-      title: "Digital Transformation Strategy",
-      description:
-        "We assess your current systems and processes, then design a practical roadmap to help you shift into a digital-first operation, securely and efficiently.",
-      subtext: "NGOs, SMEs, public sector groups",
-    },
-    {
-      icon: <Lightbulb className="w-7 h-7" />,
-      title: "Innovation Solutions",
-      description:
-        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency.",
-      subtext: "Founders, dev agencies, social startups",
-    },
-    {
-      icon: <Target className="w-7 h-7" />,
-      title: "Strategic Planning",
-      description:
-        "Offers strategic guidance and innovative solutions to propel startups forward and specialize in fostering creativity and efficiency.",
-      subtext: "INGOs, foundations, dev agencies",
-    },
-    {
-      icon: <Shield className="w-7 h-7" />,
-      title: "Secure Tech Advisory",
-      description:
-        "We help you build and assess digital systems with cybersecurity, user protection, and ethical tech at the core, especially in large-scale contexts.",
-      subtext: "Civic tech projects, GovTech teams",
-    },
-    {
-      icon: <Settings className="w-7 h-7" />,
-      title: "Training & Capacity Building",
-      description:
-        "We deliver practical, hands-on training for teams and leaders in product thinking, agile execution, innovation management.",
-      subtext: "Program managers, internal teams",
-    },
-    {
-      icon: <Activity className="w-7 h-7" />,
-      title: "Retainer Packages (Monthly)",
-      description:
-        "For ongoing product strategy, digital oversight, or fractional PM support, we offer monthly retainers tailored to your needs.",
-      subtext: "Founders, startup teams, delivery leads",
-    },
-  ];
-
-  const workProcess = [
-    {
-      step: "01",
-      title: "Assessment and Planning",
-      description:
-        "We analyze your current situation and create a comprehensive plan for success.",
-      icon: <Map className="w-5 h-5 text-white" />,
-    },
-    {
-      step: "02",
-      title: "Solution and Development",
-      description:
-        "Our team develops and implements tailored solutions for your specific needs.",
-      icon: <Settings className="w-5 h-5 text-white" />,
-    },
-    {
-      step: "03",
-      title: "Support and Optimization",
-      description:
-        "Ongoing support and continuous optimization to ensure sustained growth.",
-      icon: <TrendingUp className="w-5 h-5 text-white" />,
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Femi A.",
-      role: "Startup Founder",
-      content:
-        "ImpactLayer helped us move from idea to execution faster than we imagined. Their process was structured, collaborative, and results-driven. We now have a working MVP that speaks for itself.",
-      rating: 5,
-    },
-    {
-      name: "Tolu E.",
-      role: "Digital Lead at CivicTech Project",
-      content:
-        "Working with Adaeze and her team was a game-changer. They brought clarity to our project and managed everything from scope to delivery with zero chaos. Highly recommended",
-      rating: 5,
-    },
-    {
-      name: "Lami B.",
-      role: "Program Manager, Social Enterprise",
-      content:
-        "They didn’t just advise, they got into the trenches with us. From product strategy to user testing, the support was top-tier.",
-      rating: 5,
-    },
-    {
-      name: "Chinedu O.",
-      role: "CEO, Logistics Startup",
-      content:
-        "We’d been stuck in endless planning loops. ImpactLayer came in, clarified our roadmap, and helped us launch in 10 weeks. It was the execution muscle we didn’t know we needed.",
-      rating: 5,
-    },
-  ];
-
-  const keyBenefits = [
-    {
-      icon: <Briefcase className="w-6 h-6" />,
-      title: "Strategic Partnership",
-      desc: "We don't just consult, we co-create. Grounded in collaboration and trust.",
-    },
-    {
-      icon: <Activity className="w-6 h-6" />,
-      title: "Expert-Led Delivery",
-      desc: "Deep expertise in product strategy and digital transformation.",
-    },
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Proven Track Record",
-      desc: "From idea to implementation, we've supported high-impact teams natively.",
-    },
-  ];
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+          }
+        });
+      },
+      { threshold: 0.1 },
     );
+
+    revealRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addToRefs = (el: HTMLElement | null) => {
+    if (el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] scroll-smooth font-sans text-[#1a1a1a]">
-      {/* Navbar - Tiva Style (Transparent on top, sticky black/white) */}
-      <header className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-[80px]">
-            <div className="text-2xl font-bold flex-shrink-0">
-              {/* If you have a clear logo use it, assuming standard logo here */}
-              <Image
-                src={logo}
-                alt="Impact Layer"
-                height={40}
-                width={140}
-                className="object-contain"
-              />
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-10">
-              <a
-                href="#home"
-                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#services"
-                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#testimonials"
-                className="text-[15px] font-medium text-gray-800 hover:text-[#D11E26] transition-colors"
-              >
-                Testimonials
-              </a>
-            </nav>
-
-            <div className="hidden lg:flex items-center">
-              <a
-                href="#contact"
-                className="bg-[#D11E26] text-white text-[15px] font-medium px-7 py-3 rounded-md hover:bg-red-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-[1px]"
-              >
-                Book a Consultation
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-gray-900"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+    <div className="bg-[#080808] text-white font-['Outfit',sans-serif] min-h-screen overflow-x-hidden selection:bg-[#c41e1e] selection:text-white">
+      {/* NAV */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-5 flex justify-between items-center bg-[#080808]/85 backdrop-blur-md border-b border-white/5">
+        <Image
+          src={logoNew}
+          alt="Adaeze Logo"
+          className="h-8 md:h-10 w-auto object-contain"
+          priority
+        />
+        <ul className="hidden md:flex gap-10 list-none m-0 p-0">
+          <li>
+            <a
+              href="#about"
+              className="text-[13px] font-medium text-white/60 no-underline tracking-widest uppercase transition-colors duration-300 hover:text-white"
             >
-              {isMenuOpen ? (
-                <X className="w-7 h-7" />
-              ) : (
-                <Menu className="w-7 h-7" />
-              )}
-            </button>
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              className="text-[13px] font-medium text-white/60 no-underline tracking-widest uppercase transition-colors duration-300 hover:text-white"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="#impact"
+              className="text-[13px] font-medium text-white/60 no-underline tracking-widest uppercase transition-colors duration-300 hover:text-white"
+            >
+              Impact
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-[13px] font-medium text-white/60 no-underline tracking-widest uppercase transition-colors duration-300 hover:text-white"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+        <a
+          href="#contact"
+          className="hidden md:inline-block bg-[#c41e1e] text-white px-6 py-2.5 rounded-md text-[13px] font-semibold no-underline tracking-wider transition-colors duration-300 hover:bg-[#a01515]"
+        >
+          Book a Free Call
+        </a>
+      </nav>
+
+      {/* HERO */}
+      <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative overflow-hidden pt-20">
+        <div className="flex flex-col justify-center px-6 md:px-16 py-20 relative z-10">
+          <div
+            className="inline-flex items-center gap-2.5 mb-7 animate-fadeUp opacity-0"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <div className="w-2 h-2 bg-[#c41e1e] rounded-full"></div>
+            <span className="text-[11px] font-semibold tracking-[0.3em] text-[#c41e1e] uppercase">
+              Product Consultant & Growth Strategist
+            </span>
+          </div>
+          <h1
+            className="font-['Cormorant_Garamond',serif] text-5xl md:text-7xl font-bold leading-none text-white mb-6 animate-fadeUp opacity-0"
+            style={{ animationDelay: "0.4s" }}
+          >
+            I Grew From
+            <br />
+            Nothing. Now I<br />
+            Help Others
+            <br />
+            Build <em className="italic text-[#c41e1e]">Everything.</em>
+          </h1>
+          <p
+            className="text-base font-light text-white/55 leading-relaxed mb-11 max-w-md animate-fadeUp opacity-0"
+            style={{ animationDelay: "0.6s" }}
+          >
+            Product consulting, business growth strategy, and career development
+            for startups, organizations, and ambitious professionals across
+            Africa and beyond.
+          </p>
+          <div
+            className="flex flex-wrap gap-4 animate-fadeUp opacity-0"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <a
+              href="#contact"
+              className="bg-[#c41e1e] text-white px-8 py-4 rounded-lg text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_8px_30px_rgba(196,30,30,0.35)] hover:bg-[#a01515] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(196,30,30,0.5)]"
+            >
+              Book a Free Call &rarr;
+            </a>
+            <a
+              href="#services"
+              className="bg-transparent text-white px-8 py-4 rounded-lg text-sm font-medium tracking-wider border border-white/20 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
+            >
+              See How I Work &nearr;
+            </a>
+          </div>
+          <div
+            className="flex flex-wrap gap-10 mt-16 pt-10 border-t border-white/10 animate-fadeUp opacity-0"
+            style={{ animationDelay: "1s" }}
+          >
+            <div>
+              <div className="font-['Cormorant_Garamond',serif] text-4xl font-bold text-white leading-none">
+                5<span className="text-[#c41e1e]">+</span>
+              </div>
+              <div className="text-[11px] text-[#888888] mt-1 font-normal tracking-wide">
+                Years Building Products
+              </div>
+            </div>
+            <div>
+              <div className="font-['Cormorant_Garamond',serif] text-4xl font-bold text-white leading-none">
+                $600<span className="text-[#c41e1e]">K+</span>
+              </div>
+              <div className="text-[11px] text-[#888888] mt-1 font-normal tracking-wide">
+                Transactions Processed
+              </div>
+            </div>
+            <div>
+              <div className="font-['Cormorant_Garamond',serif] text-4xl font-bold text-white leading-none">
+                3<span className="text-[#c41e1e]"></span>
+              </div>
+              <div className="text-[11px] text-[#888888] mt-1 font-normal tracking-wide">
+                Continents Served
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden absolute top-[80px] left-0 right-0 bg-white border-b border-gray-100 shadow-lg pb-6 pt-2 px-4 z-50">
-            <div className="flex flex-col space-y-5">
-              <a
-                href="#home"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
-              >
-                About
-              </a>
-              <a
-                href="#services"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
-              >
-                Services
-              </a>
-              <a
-                href="#testimonials"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-800 font-medium text-lg border-b border-gray-50 pb-2"
-              >
-                Testimonials
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-[#D11E26] text-white text-center font-medium px-6 py-3 rounded-md w-full mt-2"
-              >
-                Book a Consultation
-              </a>
-            </div>
-          </nav>
-        )}
-      </header>
-
-      {/* Hero Section - Tiva Style (Dark with red accent text) */}
-      <section
-        id="home"
-        className="relative pt-24 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#050505] text-white"
-      >
-        {/* Dark overlay with heroImg */}
-        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity">
+        <div className="relative overflow-hidden min-h-[500px] md:min-h-0 bg-[#080808]">
           <Image
             src={heroImg}
-            alt="background"
-            layout="fill"
-            objectFit="cover"
+            alt="Adaeze"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-top animate-fadeIn"
             priority
           />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-[#0a0a0a]/90 to-transparent z-0"></div>
-        {/* Subtle red glow mimicking Tiva */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent z-0 opacity-70 blur-3xl"></div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-4xl" data-aos="fade-up">
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] tracking-tight mb-8">
-              Leading with <span className="text-[#D11E26]">technology,</span>{" "}
-              <br className="hidden lg:block" />
-              delivering with trust.
-            </h1>
-            <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed font-light">
-              Offers tailored consulting service to ignite startup growth. From
-              strategic planning to implementation, we empower entrepreneurs
-              with tools for success in competitive markets.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="bg-[#D11E26] text-white px-8 py-4 rounded-md hover:bg-red-700 transition font-semibold text-[16px] flex items-center justify-center shadow-[0_4px_14px_0_rgb(209,30,38,0.39)]"
-              >
-                Start A Project <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-              <a
-                href="#services"
-                className="border border-gray-600 text-white px-8 py-4 rounded-md hover:bg-white hover:text-black transition font-semibold text-[16px] flex items-center justify-center"
-              >
-                Talk With An Expert{" "}
-                <ArrowUpRight className="ml-2 w-5 h-5 opacity-70" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 via-20% to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#080808] opacity-90 md:opacity-100"></div>
 
-      {/* About Section - "More Than Digital Services. We Build Digital Businesses." */}
-      <section id="about" className="py-20 lg:py-32 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
-            {/* Left Content (Tiva Style - Bold heading) */}
-            <div className="lg:col-span-5" data-aos="fade-right">
-              <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-5 flex items-center gap-2">
-                <span className="w-8 h-[2px] bg-[#D11E26]"></span> About Us
-              </div>
-              <h2 className="text-4xl lg:text-[50px] font-bold text-gray-900 leading-[1.15] mb-6 tracking-tight">
-                Grounded in Strategy, <br />
-                <span className="text-[#D11E26]">Focused on Outcomes.</span>
-              </h2>
-              <p className="text-[17px] text-gray-600 leading-relaxed mb-8">
-                ImpactLayer is a product innovation and delivery firm. We work
-                with founders, startups, and forward-thinking teams to turn
-                ideas into usable, scalable digital products. Whether you're
-                starting from a concept or need help getting your MVP built, we
-                handle everything—from strategy and scoping to assembling the
-                right tech team and shipping your product. Fast, structured, and
-                outcome-driven.
-              </p>
-
-              <div className="p-6 bg-[#fafafa] border-l-4 border-[#D11E26] rounded-r-lg">
-                <h4 className="font-bold text-gray-900 mb-2">
-                  On-Demand Expert Support
-                </h4>
-                <p className="text-gray-600 text-[15px]">
-                  Tap into our team of product strategists, consultants, and
-                  transformation specialists anytime you need to move with
-                  confidence.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Content (Tiva Style - Soft red icons in list) */}
-            <div
-              className="lg:col-span-6 lg:col-start-7 space-y-8"
-              data-aos="fade-left"
-            >
-              {keyBenefits.map((benefit, idx) => (
-                <div key={idx} className="flex gap-5 group">
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#FFF0F0] flex items-center justify-center text-[#D11E26] group-hover:scale-110 transition-transform duration-300">
-                    {benefit.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-[16px]">
-                      {benefit.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Centered statement at bottom of About */}
           <div
-            className="mt-24 text-center max-w-3xl mx-auto"
-            data-aos="fade-up"
+            className="absolute bottom-10 right-6 md:right-10 bg-[#c41e1e] text-white p-5 rounded-xl text-[13px] font-semibold leading-snug shadow-[0_8px_30px_rgba(196,30,30,0.4)] animate-fadeUp opacity-0"
+            style={{ animationDelay: "1.2s" }}
           >
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug">
-              We don't just advise.{" "}
-              <span className="text-[#D11E26]">
-                We design, implement, and stay with you through execution.
+            <span className="font-['Cormorant_Garamond',serif] text-3xl font-bold block">
+              27K+
+            </span>
+            Users Acquired
+          </div>
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <div className="bg-[#c41e1e] py-4 overflow-hidden whitespace-nowrap">
+        <div className="inline-flex gap-0 animate-marquee">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex">
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                Product Strategy
               </span>
-            </h3>
-          </div>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                Business Growth
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                Women's Economic Inclusion
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                Career Mentorship
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                Fintech & Payments
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/90 px-8">
+                African Markets
+              </span>
+              <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-white/40 px-8">
+                ✦
+              </span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Services Section - Tiva Style Cards */}
+      {/* ABOUT */}
       <section
-        id="services"
-        className="py-24 bg-[#fafafa] relative overflow-hidden"
+        className="bg-[#f5f3ef] text-[#080808] px-6 md:px-16 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
+        id="about"
       >
-        {/* Subtle background patterns */}
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0 transform translate-x-1/2 -translate-y-1/2"></div>
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
-              What We Offer
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Your Digital Consulting & Transformation Partner
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-10 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="w-16 h-16 rounded-[18px] bg-[#FFF0F0] text-[#D11E26] flex items-center justify-center mb-6 group-hover:bg-[#D11E26] group-hover:text-white transition-colors duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-[22px] font-bold mb-4 text-gray-900 leading-snug">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed text-[16px]">
-                  {service.description}
-                </p>
-                <div className="mt-auto border-t border-gray-100 pt-5">
-                  <span className="text-[14px] font-bold text-gray-400 uppercase tracking-wide block mb-1">
-                    Who it's for
-                  </span>
-                  <span className="text-[#D11E26] font-medium text-[15px]">
-                    {service.subtext}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Working Process Section - Pink Cards  */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
-              Our Process
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Strategic Programs for Every Growth Stage
-            </h2>
-          </div>
-
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6">
-              {workProcess.map((process, index) => (
-                <div
-                  key={index}
-                  className="bg-[#FFF0F0] p-10 rounded-2xl transition-all duration-300 relative overflow-hidden group hover:shadow-md"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 150}
-                >
-                  {/* Decorative large number in background */}
-                  <div className="absolute -right-6 -bottom-10 text-[150px] font-black text-[#D11E26] opacity-[0.03] leading-none pointer-events-none transition-transform group-hover:scale-110">
-                    {process.step}
-                  </div>
-
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="text-2xl font-black text-[#D11E26]">
-                      {process.step}
-                    </span>
-                    <div className="w-10 h-10 rounded-full bg-[#D11E26] flex items-center justify-center shadow-lg">
-                      {process.icon}
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900 relative z-10">
-                    {process.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed text-[16px] relative z-10">
-                    {process.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 text-center" data-aos="fade-up">
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center bg-[#D11E26] text-white px-8 py-4 rounded-md font-semibold hover:bg-red-700 transition shadow-[0_4px_14px_0_rgb(209,30,38,0.39)] hover:shadow-[0_6px_20px_rgba(209,30,38,0.23)] hover:-translate-y-0.5"
-              >
-                Explore All Offerings <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Red Banner Full Width CTA */}
-      <section className="py-24 bg-[#D11E26] text-white relative overflow-hidden">
-        {/* Very subtle pattern inside red to mimic Tiva's mesh */}
         <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center" data-aos="zoom-in">
-            <h2 className="text-4xl lg:text-[56px] font-bold leading-[1.15] tracking-tight mb-8">
-              Built for Local Realities. <br /> Designed for Global Standards.
-            </h2>
-            <p className="text-xl text-red-100 max-w-2xl mx-auto font-light">
-              We're the execution muscle you didn't know you needed. Tap into
-              our team of product strategists and build something lasting.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 bg-[#fafafa]">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <div className="text-[#D11E26] font-bold text-sm tracking-wider uppercase mb-4">
-              Tested & Proven
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Trusted by Forward-Thinking Leaders
-            </h2>
-          </div>
-
-          <div className="max-w-5xl mx-auto relative group">
-            {/* Tiva Style - White card, soft border/shadow, avatar with red */}
-            <div
-              className="bg-white p-10 lg:p-14 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all min-h-[300px] flex flex-col justify-center border border-gray-100 relative overflow-hidden"
-              data-aos="fade-up"
-            >
-              {/* Subtle Quote Mark */}
-              <div className="absolute top-6 left-8 text-[120px] font-serif text-[#FFF0F0] leading-none select-none">
-                "
-              </div>
-
-              <div className="relative z-10">
-                <div className="flex items-center mb-8 gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-[#D11E26] fill-current"
-                    />
-                  ))}
-                </div>
-
-                <blockquote className="text-2xl lg:text-[28px] text-gray-800 leading-snug mb-10 font-medium">
-                  {testimonials[currentTestimonial].content}
-                </blockquote>
-
-                <div className="flex items-center">
-                  <div className="w-14 h-14 rounded-full bg-[#FFF0F0] flex items-center justify-center text-[#D11E26] font-bold text-xl mr-4 border border-red-100">
-                    {testimonials[currentTestimonial].name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-[17px]">
-                      {testimonials[currentTestimonial].name}
-                    </div>
-                    <div className="text-gray-500 text-[15px]">
-                      {testimonials[currentTestimonial].role}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation (Tiva style - outside or soft overlaid buttons) */}
-            <div className="flex justify-center mt-10 gap-4">
-              <button
-                onClick={prevTestimonial}
-                className="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-[#D11E26] hover:text-white hover:border-[#D11E26] transition-all shadow-sm"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-[#D11E26] hover:text-white hover:border-[#D11E26] transition-all shadow-sm"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="flex justify-center mt-6 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentTestimonial === index
-                      ? "bg-[#D11E26] w-8"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA Section - Tiva Style (White/Patterned background) */}
-      <section className="py-24 bg-white relative border-t border-gray-100">
-        {/* Subtle pattern matching Tiva footer CTA area */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)",
-            backgroundSize: "20px 20px",
-            backgroundPosition: "0 0, 10px 10px",
-          }}
-        ></div>
-
-        <div
-          className="container mx-auto px-4 lg:px-8 relative z-10 text-center"
-          id="contact"
+          className="opacity-0 translate-y-8 transition-all duration-700 ease-in-out"
+          ref={addToRefs}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-            Ready to Build a{" "}
-            <span className="text-[#D11E26]">Digital World?</span>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-0.5 bg-[#c41e1e]"></div>
+            <span className="text-[10px] font-bold tracking-[0.3em] text-[#c41e1e] uppercase">
+              About Me
+            </span>
+          </div>
+          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-[54px] font-bold leading-[1.05] text-[#080808] mb-5">
+            Built From Scratch.
+            <br />
+            <em className="italic text-[#c41e1e]">Focused on</em>
+            <br />
+            What Works.
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
-            Let's discuss how our strategies and frameworks can help your
-            business achieve its goals and secure its market position.
+          <p className="text-base font-light text-[#444] leading-[1.8] mb-8">
+            I've been broke, stuck, and underestimated. I also built products
+            processing millions across Africa and Europe. I know both sides and
+            that's what I bring to every client.
+            <br />
+            <br />I work with startups, NGOs, multinationals, and ambitious
+            professionals who are ready to stop guessing and start building
+            things that actually work.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="mailto:adaeze@impactlayer.tech"
-              className="bg-[#D11E26] text-white px-8 py-4 rounded-md font-semibold hover:bg-red-700 transition shadow-lg flex justify-center items-center"
-            >
-              Book a Strategy Session
-            </a>
-            <a
-              target="_blank"
-              href="https://adaezeekwochi.substack.com/"
-              className="border border-gray-300 text-gray-800 bg-white px-8 py-4 rounded-md font-semibold hover:border-gray-800 transition flex justify-center items-center"
-            >
-              Subscribe to Newsletter
-            </a>
+        </div>
+        <div
+          className="flex flex-col gap-6 opacity-0 translate-y-8 transition-all duration-700 ease-in-out delay-100"
+          ref={addToRefs}
+        >
+          <div className="bg-white rounded-2xl p-6 md:p-7 flex gap-5 items-start shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
+            <div className="w-11 h-11 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center shrink-0 text-xl">
+              💡
+            </div>
+            <div>
+              <h4 className="text-[15px] font-semibold text-[#080808] mb-1.5 mt-0">
+                I've Done the Work
+              </h4>
+              <p className="text-[13px] text-[#666] leading-[1.6] font-light m-0">
+                Not theory. Real products, real markets, real results across
+                Nigeria, UK, Benin Republic and beyond.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-2xl p-6 md:p-7 flex gap-5 items-start shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
+            <div className="w-11 h-11 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center shrink-0 text-xl">
+              🤝
+            </div>
+            <div>
+              <h4 className="text-[15px] font-semibold text-[#080808] mb-1.5 mt-0">
+                We Build Together
+              </h4>
+              <p className="text-[13px] text-[#666] leading-[1.6] font-light m-0">
+                I don't just advise. I get in the trenches with you and stay
+                until it works.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-2xl p-6 md:p-7 flex gap-5 items-start shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
+            <div className="w-11 h-11 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center shrink-0 text-xl">
+              📈
+            </div>
+            <div>
+              <h4 className="text-[15px] font-semibold text-[#080808] mb-1.5 mt-0">
+                Growth You Can Measure
+              </h4>
+              <p className="text-[13px] text-[#666] leading-[1.6] font-light m-0">
+                Your product, business, or career. We track what actually moves
+                the needle.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Global Footer - Tiva Style (Black with sharp clean text) */}
-      <footer className="bg-[#050505] text-white pt-20 pb-8">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <div className="lg:col-span-1">
-              <div className="mb-8">
-                <Image
-                  src={logoWhite}
-                  alt="Impact Layer Logo"
-                  height={45}
-                  width={160}
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-gray-400 mb-8 leading-relaxed font-light text-[15px]">
-                We help founders, organizations, and product teams turn complex
-                ideas into working digital products. From strategy to execution,
-                we deliver clarity and results.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
-                >
-                  <Facebook size={18} />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
-                >
-                  <Instagram size={18} />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D11E26] transition-colors text-gray-300 hover:text-white"
-                >
-                  <Linkedin size={18} />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6 tracking-wide">
-                Solutions
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Digital Transformation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Innovation Solutions
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Strategic Planning
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Training & Capacity
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6 tracking-wide">
-                Company
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <a
-                    href="#about"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#testimonials"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Testimonials
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://adaezeekwochi.substack.com/"
-                    target="_blank"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Newsletter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition-colors text-[15px]"
-                  >
-                    Contact Support
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6 tracking-wide">
-                Get in Touch
-              </h4>
-              <ul className="space-y-5">
-                <li className="flex items-start gap-3 text-gray-400 text-[15px]">
-                  <MapPin
-                    size={20}
-                    className="text-[#D11E26] flex-shrink-0 mt-0.5"
-                  />
-                  <span>
-                    Abuja, Nigeria <br /> (Remote, Global Access)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-400 text-[15px]">
-                  <Mail
-                    size={20}
-                    className="text-[#D11E26] flex-shrink-0 mt-0.5"
-                  />
-                  <a
-                    href="mailto:adaeze@impactlayer.tech"
-                    className="hover:text-white transition-colors"
-                  >
-                    adaeze@impactlayer.tech
-                  </a>
-                </li>
-              </ul>
-            </div>
+      {/* SERVICES */}
+      <section
+        className="bg-[#111111] px-6 md:px-16 py-24 md:py-32"
+        id="services"
+      >
+        <div
+          className="text-center mb-16 md:mb-20 opacity-0 translate-y-8 transition-all duration-700 ease-in-out"
+          ref={addToRefs}
+        >
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-0.5 bg-[#c41e1e]"></div>
+            <span className="text-[10px] font-bold tracking-[0.3em] text-[#c41e1e] uppercase">
+              What I Offer
+            </span>
           </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>
-              © {new Date().getFullYear()} ImpactLayer. All rights reserved.
+          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-[54px] font-bold text-white mt-4 mb-0">
+            Your Partner in <em className="italic text-[#c41e1e]">Growth</em>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className="group relative overflow-hidden bg-white/5 border border-white/5 rounded-2xl p-8 md:p-9 transition-all duration-700 ease-in-out hover:bg-white/10 hover:border-[#c41e1e]/30 hover:-translate-y-1.5 opacity-0 translate-y-8"
+            ref={addToRefs}
+          >
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#c41e1e] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+            <div className="w-14 h-14 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center text-2xl mb-6">
+              🚀
+            </div>
+            <div className="text-[10px] font-semibold tracking-[0.2em] text-[#c41e1e] uppercase mb-3.5">
+              For Startups, NGOs & Multinationals
+            </div>
+            <h3 className="font-['Cormorant_Garamond',serif] text-2xl font-bold text-white mb-3 mt-0 leading-[1.2]">
+              Product, Ops & Growth Consulting
+            </h3>
+            <p className="text-[14px] text-white/55 leading-[1.7] font-light m-0">
+              You have an idea or a product that isn't performing. I help you
+              figure out what to build, how to build it, and how to grow it.
+              Product, ops, and growth, all in one place.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-gray-300 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gray-300 transition-colors">
-                Terms of Service
-              </a>
+          </div>
+          <div
+            className="group relative overflow-hidden bg-white/5 border border-white/5 rounded-2xl p-8 md:p-9 transition-all duration-700 ease-in-out delay-100 hover:bg-white/10 hover:border-[#c41e1e]/30 hover:-translate-y-1.5 opacity-0 translate-y-8"
+            ref={addToRefs}
+          >
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#c41e1e] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+            <div className="w-14 h-14 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center text-2xl mb-6">
+              🌱
+            </div>
+            <div className="text-[10px] font-semibold tracking-[0.2em] text-[#c41e1e] uppercase mb-3.5">
+              For Women-Led SMEs & Impact Orgs
+            </div>
+            <h3 className="font-['Cormorant_Garamond',serif] text-2xl font-bold text-white mb-3 mt-0 leading-[1.2]">
+              Business Growth Strategy
+            </h3>
+            <p className="text-[14px] text-white/55 leading-[1.7] font-light m-0">
+              Your business is running but not growing the way it should. I help
+              you find the gaps, fix what's broken, and build a path that
+              actually works for your market.
+            </p>
+          </div>
+          <div
+            className="group relative overflow-hidden bg-white/5 border border-white/5 rounded-2xl p-8 md:p-9 transition-all duration-700 ease-in-out delay-200 hover:bg-white/10 hover:border-[#c41e1e]/30 hover:-translate-y-1.5 opacity-0 translate-y-8"
+            ref={addToRefs}
+          >
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#c41e1e] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+            <div className="w-14 h-14 bg-[#c41e1e]/10 rounded-xl flex items-center justify-center text-2xl mb-6">
+              🎯
+            </div>
+            <div className="text-[10px] font-semibold tracking-[0.2em] text-[#c41e1e] uppercase mb-3.5">
+              For Aspiring PMs, Women & Youth
+            </div>
+            <h3 className="font-['Cormorant_Garamond',serif] text-2xl font-bold text-white mb-3 mt-0 leading-[1.2]">
+              Career Coaching & Mentorship
+            </h3>
+            <p className="text-[14px] text-white/55 leading-[1.7] font-light m-0">
+              You know you're capable of more but don't know how to get there. I
+              help you build the skills, the confidence, and the strategy to
+              move.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* IMPACT */}
+      <section
+        className="bg-[#080808] px-6 md:px-16 py-24 md:py-32 text-center"
+        id="impact"
+      >
+        <div
+          className="opacity-0 translate-y-8 transition-all duration-700 ease-in-out"
+          ref={addToRefs}
+        >
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-0.5 bg-[#c41e1e]"></div>
+            <span className="text-[10px] font-bold tracking-[0.3em] text-[#c41e1e] uppercase">
+              By the Numbers
+            </span>
+          </div>
+          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-[54px] font-bold text-white mb-4 mt-0">
+            Rooted in Africa.
+            <br />
+            <em className="italic text-[#c41e1e]">Built for the World.</em>
+          </h2>
+          <p className="text-base text-[#888888] font-light mb-16 md:mb-[70px] max-w-[500px] mx-auto leading-[1.7]">
+            Real experience across real markets. Here's what that looks like in
+            numbers.
+          </p>
+        </div>
+        <div
+          className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-white/5 rounded-2xl overflow-hidden mb-20 opacity-0 translate-y-8 transition-all duration-700 ease-in-out delay-100"
+          ref={addToRefs}
+        >
+          <div className="bg-[#1a1a1a] p-8 md:p-11 text-center">
+            <div className="font-['Cormorant_Garamond',serif] text-4xl md:text-[52px] font-bold text-white leading-none">
+              $600<span className="text-[#c41e1e]">K+</span>
+            </div>
+            <div className="text-[12px] text-[#888888] mt-2.5 font-normal tracking-[0.04em] leading-[1.5]">
+              Transactions Processed in First 2 Months
             </div>
           </div>
+          <div className="bg-[#1a1a1a] p-8 md:p-11 text-center">
+            <div className="font-['Cormorant_Garamond',serif] text-4xl md:text-[52px] font-bold text-white leading-none">
+              27<span className="text-[#c41e1e]">K+</span>
+            </div>
+            <div className="text-[12px] text-[#888888] mt-2.5 font-normal tracking-[0.04em] leading-[1.5]">
+              Users Acquired in 5 Months
+            </div>
+          </div>
+          <div className="bg-[#1a1a1a] p-8 md:p-11 text-center">
+            <div className="font-['Cormorant_Garamond',serif] text-4xl md:text-[52px] font-bold text-white leading-none">
+              $100<span className="text-[#c41e1e]">K</span>
+            </div>
+            <div className="text-[12px] text-[#888888] mt-2.5 font-normal tracking-[0.04em] leading-[1.5]">
+              Pre-MVP Funding Raised
+            </div>
+          </div>
+          <div className="bg-[#1a1a1a] p-8 md:p-11 text-center">
+            <div className="font-['Cormorant_Garamond',serif] text-4xl md:text-[52px] font-bold text-white leading-none">
+              5<span className="text-[#c41e1e]">+</span>
+            </div>
+            <div className="text-[12px] text-[#888888] mt-2.5 font-normal tracking-[0.04em] leading-[1.5]">
+              Years Shipping Products Across 3 Continents
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RED BAND */}
+      <div
+        className="bg-[#c41e1e] px-6 md:px-16 py-16 md:py-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-10 opacity-0 translate-y-8 transition-all duration-700 ease-in-out"
+        ref={addToRefs}
+      >
+        <div>
+          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-[52px] font-bold text-white leading-[1.05] m-0">
+            Local Insight.
+            <br />
+            Global Standards.
+          </h2>
+          <p className="text-[15px] text-white/75 font-light mt-3 leading-[1.6] mb-0">
+            I've built in the markets most consultants only read about.
+            <br className="hidden md:block" />
+            That's the difference.
+          </p>
+        </div>
+        <a
+          href="#contact"
+          className="bg-white text-[#c41e1e] px-9 py-4 rounded-lg text-[14px] font-bold no-underline tracking-[0.06em] whitespace-nowrap transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] shrink-0"
+        >
+          Work With Me &rarr;
+        </a>
+      </div>
+
+      {/* CONTACT */}
+      <section
+        className="bg-[#111111] px-6 md:px-16 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 items-start"
+        id="contact"
+      >
+        <div
+          className="opacity-0 translate-y-8 transition-all duration-700 ease-in-out"
+          ref={addToRefs}
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-0.5 bg-[#c41e1e]"></div>
+            <span className="text-[10px] font-bold tracking-[0.3em] text-[#c41e1e] uppercase">
+              Get In Touch
+            </span>
+          </div>
+          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-[54px] font-bold text-white mb-5 leading-[1.05] mt-0">
+            Let's Build
+            <br />
+            <em className="italic text-[#c41e1e]">Something</em>
+            <br />
+            Together.
+          </h2>
+          <p className="text-[15px] text-[#888888] font-light leading-[1.8] mb-9">
+            Whether you need a product consultant, a growth strategist, or a
+            mentor who's been where you are, I'm here. Book a free call and
+            let's figure out your next move.
+          </p>
+          <div className="flex flex-col gap-3.5">
+            <a
+              href="mailto:ekwochiadaeze@gmail.com"
+              className="flex items-center gap-3.5 text-[14px] text-white/70 no-underline transition-colors duration-300 hover:text-white"
+            >
+              <div className="w-9 h-9 bg-[#c41e1e]/10 rounded-lg flex items-center justify-center text-base shrink-0">
+                ✉️
+              </div>
+              ekwochiadaeze@gmail.com
+            </a>
+            <a
+              href="https://linkedin.com/in/ekwochi-adaeze-a93751148"
+              className="flex items-center gap-3.5 text-[14px] text-white/70 no-underline transition-colors duration-300 hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="w-9 h-9 bg-[#c41e1e]/10 rounded-lg flex items-center justify-center text-base shrink-0">
+                💼
+              </div>
+              linkedin.com/in/ekwochi-adaeze
+            </a>
+            <a
+              href="https://instagram.com/growthwithada"
+              className="flex items-center gap-3.5 text-[14px] text-white/70 no-underline transition-colors duration-300 hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="w-9 h-9 bg-[#c41e1e]/10 rounded-lg flex items-center justify-center text-base shrink-0">
+                📸
+              </div>
+              @growthwithada
+            </a>
+          </div>
+        </div>
+        <div
+          className="opacity-0 translate-y-8 transition-all duration-700 ease-in-out delay-100"
+          ref={addToRefs}
+        >
+          <form className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <label className="text-[11px] font-semibold tracking-[0.15em] text-white/40 uppercase">
+                Your Name
+              </label>
+              <input
+                type="text"
+                placeholder="What should I call you?"
+                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[14px] text-white font-['Outfit',sans-serif] font-light transition-colors duration-300 outline-none appearance-none hover:border-white/20 focus:border-[#c41e1e]"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-[11px] font-semibold tracking-[0.15em] text-white/40 uppercase">
+                Email Address
+              </label>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[14px] text-white font-['Outfit',sans-serif] font-light transition-colors duration-300 outline-none appearance-none hover:border-white/20 focus:border-[#c41e1e]"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-[11px] font-semibold tracking-[0.15em] text-white/40 uppercase">
+                What do you need help with?
+              </label>
+              <select className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[14px] text-white font-['Outfit',sans-serif] font-light transition-colors duration-300 outline-none appearance-none hover:border-white/20 focus:border-[#c41e1e]">
+                <option value="" className="bg-[#1a1a1a]">
+                  Select a service
+                </option>
+                <option className="bg-[#1a1a1a]">
+                  Product, Ops & Growth Consulting
+                </option>
+                <option className="bg-[#1a1a1a]">
+                  Business Growth Strategy
+                </option>
+                <option className="bg-[#1a1a1a]">
+                  Career Coaching & Mentorship
+                </option>
+                <option className="bg-[#1a1a1a]">Something else</option>
+              </select>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-[11px] font-semibold tracking-[0.15em] text-white/40 uppercase">
+                Tell me more
+              </label>
+              <textarea
+                placeholder="What's going on? What do you want to achieve?"
+                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[14px] text-white font-['Outfit',sans-serif] font-light transition-colors duration-300 outline-none appearance-none min-h-[120px] resize-y hover:border-white/20 focus:border-[#c41e1e]"
+              ></textarea>
+            </div>
+            <button
+              type="button"
+              className="bg-[#c41e1e] text-white px-8 py-4 rounded-xl text-[14px] font-semibold tracking-[0.06em] border-none cursor-pointer font-['Outfit',sans-serif] transition-all duration-300 shadow-[0_8px_30px_rgba(196,30,30,0.3)] mt-2 hover:bg-[#a01515] hover:-translate-y-0.5"
+            >
+              Send Message &rarr;
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#080808] px-6 md:px-16 py-10 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5">
+        <Image
+          src={logoNew}
+          alt="Adaeze Logo"
+          className="h-6 w-auto object-contain"
+        />
+        <p className="text-[12px] text-[#888888] font-light m-0 text-center">
+          &copy; 2026 Adaeze Ekwochi. All rights reserved.
+        </p>
+        <div className="flex gap-6">
+          <a
+            href="#about"
+            className="text-[12px] text-[#888888] no-underline transition-colors duration-300 hover:text-white"
+          >
+            About
+          </a>
+          <a
+            href="#services"
+            className="text-[12px] text-[#888888] no-underline transition-colors duration-300 hover:text-white"
+          >
+            Services
+          </a>
+          <a
+            href="#contact"
+            className="text-[12px] text-[#888888] no-underline transition-colors duration-300 hover:text-white"
+          >
+            Contact
+          </a>
         </div>
       </footer>
     </div>
   );
-};
-
-export default InqordWebsite;
+}
