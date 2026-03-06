@@ -86,7 +86,7 @@ export default function AdaezePage() {
 
       {/* HERO */}
       <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative overflow-hidden pt-20">
-        <div className="flex flex-col justify-center px-6 md:px-16 py-20 relative z-10">
+        <div className="order-2 md:order-1 flex flex-col justify-center px-6 md:px-16 py-10 md:py-20 -mt-48 md:mt-0 relative z-10">
           <div
             className="inline-flex items-center gap-2.5 mb-7 animate-fadeUp opacity-0"
             style={{ animationDelay: "0.2s" }}
@@ -162,7 +162,7 @@ export default function AdaezePage() {
             </div>
           </div>
         </div>
-        <div className="relative overflow-hidden min-h-[500px] md:min-h-0 bg-[#080808]">
+        <div className="order-1 md:order-2 relative overflow-hidden min-h-[400px] md:min-h-0 bg-[#080808]">
           <Image
             src={heroImg}
             alt="Adaeze"
@@ -173,10 +173,10 @@ export default function AdaezePage() {
           />
 
           <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 via-20% to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#080808] opacity-90 md:opacity-100"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-30% to-[#080808] opacity-100"></div>
 
           <div
-            className="absolute bottom-10 right-6 md:right-10 bg-[#c41e1e] text-white p-5 rounded-xl text-[13px] font-semibold leading-snug shadow-[0_8px_30px_rgba(196,30,30,0.4)] animate-fadeUp opacity-0"
+            className="hidden md:block absolute bottom-10 right-6 md:right-10 bg-[#c41e1e] text-white p-5 rounded-xl text-[13px] font-semibold leading-snug shadow-[0_8px_30px_rgba(196,30,30,0.4)] animate-fadeUp md:opacity-0"
             style={{ animationDelay: "1.2s" }}
           >
             <span className="font-['Cormorant_Garamond',serif] text-3xl font-bold block">
