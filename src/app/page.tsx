@@ -1,6 +1,7 @@
 "use client";
 import heroImg from "@/assets/main/hero-img.jpeg";
 import logoNew from "@/assets/main/logo-new.png";
+import { ArrowBigRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 export default function AdaezePage() {
@@ -123,13 +124,13 @@ export default function AdaezePage() {
               href="#contact"
               className="bg-[#c41e1e] text-white px-8 py-4 rounded-lg text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_8px_30px_rgba(196,30,30,0.35)] hover:bg-[#a01515] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(196,30,30,0.5)]"
             >
-              Book a Free Call &rarr;
+              Book a Free Call <ArrowBigRight className="inline-block" />
             </a>
             <a
               href="#services"
               className="bg-transparent text-white px-8 py-4 rounded-lg text-sm font-medium tracking-wider border border-white/20 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
             >
-              See How I Work &nearr;
+              See How I Work <ArrowBigRight className="inline-block" />
             </a>
           </div>
           <div
