@@ -121,7 +121,7 @@ export default function AdaezePage() {
             style={{ animationDelay: "0.8s" }}
           >
             <a
-              href="#contact"
+              href="https://calendar.app.google/wBVicZDz7DmiaXBk8"
               className="bg-[#c41e1e] text-white px-8 py-4 rounded-lg text-sm font-semibold tracking-wider transition-all duration-300 shadow-[0_8px_30px_rgba(196,30,30,0.35)] hover:bg-[#a01515] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(196,30,30,0.5)]"
             >
               Book a Free Call <ArrowBigRight className="inline-block" />
